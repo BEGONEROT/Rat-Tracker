@@ -14,6 +14,9 @@ public class LoginScreen extends AppCompatActivity {
         setContentView(R.layout.activity_login_screen);
     }
 
-
+    public void onLoginPressed(View v) {
+        Intent loginPage = new Intent(WelcomeScreen.this, LoginScreen.class);
+        startActivity(loginPage);
+    }
 
 }

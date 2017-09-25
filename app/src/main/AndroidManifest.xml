@@ -18,11 +18,13 @@
         </activity>
         <activity
             android:name=".LoginScreen"
-            android:parentActivityName=".WelcomeScreen">
-        </activity>
-        <!--<activity
+            android:parentActivityName=".WelcomeScreen"></activity>
+        <!--
+        <activity
             android:name=".RegisterScreen">
-        </activity>-->
+        </activity>
+        -->
+        <activity android:name=".SucessfulLogin"></activity>
     </application>
 
 </manifest>
