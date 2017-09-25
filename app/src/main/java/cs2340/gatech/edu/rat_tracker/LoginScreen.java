@@ -38,12 +38,11 @@ public class LoginScreen extends AppCompatActivity {
                             }).show();
 
                 } else {
+                    Intent loginPage = new Intent(LoginScreen.this, SucessfulLogin.class);
+                    startActivity(loginPage);
 
                 }
             }
         });
     }
-
-
-
 }

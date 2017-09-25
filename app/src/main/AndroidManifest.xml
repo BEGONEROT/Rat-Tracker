@@ -24,6 +24,8 @@
             android:name=".RegisterScreen">
         </activity>
         -->
+
+        <activity android:name=".SucessfulLogin"></activity>
     </application>
 
 </manifest>
