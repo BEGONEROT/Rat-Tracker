@@ -38,15 +38,11 @@ public class LoginScreen extends AppCompatActivity {
                             }).show();
 
                 } else {
+                    Intent loginPage = new Intent(LoginScreen.this, SucessfulLogin.class);
+                    startActivity(loginPage);
 
                 }
             }
         });
     }
-
-    public void onLoginPressed(View v) {
-        Intent loginPage = new Intent(WelcomeScreen.this, LoginScreen.class);
-        startActivity(loginPage);
-    }
-
 }
