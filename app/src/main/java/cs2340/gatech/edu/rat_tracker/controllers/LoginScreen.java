@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import cs2340.gatech.edu.rat_tracker.R;
+import cs2340.gatech.edu.rat_tracker.model.Model;
+import cs2340.gatech.edu.rat_tracker.model.User;
+
 
 public class LoginScreen extends AppCompatActivity {
 
@@ -27,7 +30,8 @@ public class LoginScreen extends AppCompatActivity {
                 String username = usernameview.getText().toString();
                 TextView passwordview = (TextView) findViewById(R.id.password);
                 String password = passwordview.getText().toString();
-                if (!username.equals("user") || !password.equals("pass")) {
+                Model model = Model.getInstance();
+                if (!model.userExists(new User(username, password, false))) {
                     new AlertDialog.Builder(LoginScreen.this).setTitle("Login Error")
                             .setMessage("Unable to login, please try again.")
                             .setCancelable(false)
