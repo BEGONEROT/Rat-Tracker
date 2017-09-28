@@ -26,9 +26,9 @@ public class LoginScreen extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView usernameview = (TextView) findViewById(R.id.username);
+                TextView usernameview = (TextView) findViewById(R.id.registerusername);
                 String username = usernameview.getText().toString();
-                TextView passwordview = (TextView) findViewById(R.id.password);
+                TextView passwordview = (TextView) findViewById(R.id.registerpassword);
                 String password = passwordview.getText().toString();
                 Model model = Model.getInstance();
                 if (!model.userExists(new User(username, password, false))) {

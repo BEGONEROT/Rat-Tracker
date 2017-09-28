@@ -32,4 +32,8 @@ public class Model {
         }
         return false;
     }
+
+    public void addUser(User addme) {
+        users.add(addme);
+    }
 }
