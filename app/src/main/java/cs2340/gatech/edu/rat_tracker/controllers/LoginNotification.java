@@ -14,6 +14,10 @@ import cs2340.gatech.edu.rat_tracker.R;
  */
 
 public class LoginNotification extends DialogFragment {
+    /**
+     * Constructor for the Notification
+     * @return the AlertDialog object that was constructed
+     */
     public Dialog onCreateDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.login_failed_title)

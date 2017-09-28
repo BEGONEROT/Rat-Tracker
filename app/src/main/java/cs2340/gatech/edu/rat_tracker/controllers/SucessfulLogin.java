@@ -24,6 +24,10 @@ public class SucessfulLogin extends AppCompatActivity {
         }
     }
 
+    /**
+     * Changes the activity to Welcome screen when logout is pressed
+     * @param v Current view
+     */
     public void onLogoutPressed(View v) {
         Intent loginOutPage = new Intent(SucessfulLogin.this, WelcomeScreen.class);
         startActivity(loginOutPage);
