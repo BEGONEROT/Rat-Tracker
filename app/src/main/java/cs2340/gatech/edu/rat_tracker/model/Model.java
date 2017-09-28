@@ -16,12 +16,12 @@ public class Model {
 
     //objects stored
     private List<User> users;
+    private User current_user;
 
     //constructor
     private Model() {
         this.users = new ArrayList<User>();
-        //NOTE: remove this to stop population of default user
-        users.add(new User());
+        this.current_user = null;
     }
 
     public boolean userExists(User amialive) {
@@ -33,7 +33,24 @@ public class Model {
         return false;
     }
 
+    public User getUser(User amialive) {
+        for (User user: users) {
+            if (user.toString().equals(amialive.toString())) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     public void addUser(User addme) {
         users.add(addme);
+    }
+
+    public void setCurrentUser(User user) {
+        current_user = user;
+    }
+
+    public User getCurrentUser() {
+        return current_user;
     }
 }

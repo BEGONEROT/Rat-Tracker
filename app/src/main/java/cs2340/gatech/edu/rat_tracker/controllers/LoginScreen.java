@@ -43,6 +43,7 @@ public class LoginScreen extends AppCompatActivity {
                             }).show();
 
                 } else {
+                    Model.getInstance().setCurrentUser(Model.getInstance().getUser(new User(username, password, false)));
                     Intent loginPage = new Intent(LoginScreen.this, SucessfulLogin.class);
                     startActivity(loginPage);
 
