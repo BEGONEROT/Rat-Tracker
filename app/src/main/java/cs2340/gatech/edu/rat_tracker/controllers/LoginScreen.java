@@ -23,6 +23,7 @@ public class LoginScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
         final Button login = (Button) findViewById(R.id.login);
+        // set up login button action
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,6 +31,7 @@ public class LoginScreen extends AppCompatActivity {
                 String username = usernameview.getText().toString();
                 TextView passwordview = (TextView) findViewById(R.id.registerpassword);
                 String password = passwordview.getText().toString();
+                //check if user exists and handle success or failure
                 Model model = Model.getInstance();
                 if (!model.userExists(new User(username, password, false))) {
                     new AlertDialog.Builder(LoginScreen.this).setTitle("Login Error")
