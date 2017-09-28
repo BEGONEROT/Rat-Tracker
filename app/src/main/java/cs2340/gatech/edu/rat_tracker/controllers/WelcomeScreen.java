@@ -18,13 +18,17 @@ public class WelcomeScreen extends AppCompatActivity {
     /**
      * When the button "Login" is pressed, user is transferred
      * to the login page.
-     * @param v View v
+     * @param v Current View
      */
     public void onLoginPressed(View v) {
         Intent loginPage = new Intent(WelcomeScreen.this, LoginScreen.class);
         startActivity(loginPage);
     }
 
+    /**
+     * Transfer user to Registration when register is pressed
+     * @param v
+     */
     public void onRegisterPressed(View v) {
         Intent registerPage = new Intent(WelcomeScreen.this, RegistrationScreen.class);
         startActivity(registerPage);

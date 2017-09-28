@@ -26,6 +26,7 @@ public class RegistrationScreen extends AppCompatActivity {
         setContentView(R.layout.activity_registration_screen);
         final Button register = (Button) findViewById(R.id.register);
         checkBox = (CheckBox) findViewById(R.id.checkBox);
+        //set up register button handler
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
