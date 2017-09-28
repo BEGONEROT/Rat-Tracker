@@ -1,9 +1,11 @@
-package cs2340.gatech.edu.rat_tracker;
+package cs2340.gatech.edu.rat_tracker.controllers;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+
+import cs2340.gatech.edu.rat_tracker.R;
 
 /**
  * Notification dialog for a failed login attempt
