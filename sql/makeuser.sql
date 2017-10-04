@@ -1,3 +1,3 @@
-CREATE USER IF NOT EXISTS 'monty'@'localhost' IDENTIFIED BY 'some_pass';
-GRANT ALL PRIVILEGES ON mydb.* TO 'monty'@'localhost';
+CREATE USER IF NOT EXISTS 'tracker'@'localhost' IDENTIFIED BY '123';
+GRANT ALL PRIVILEGES ON begone_rot.* TO 'tracker'@'localhost';
 FLUSH PRIVILEGES;
