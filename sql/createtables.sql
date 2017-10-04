@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS begone_rot;
+
 USE begone_rot;
 
 CREATE TABLE IF NOT EXISTS App_User (
