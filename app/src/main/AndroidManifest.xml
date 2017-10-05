@@ -22,6 +22,8 @@
         <activity android:name=".controllers.WelcomeScreen" />
         <activity android:name=".controllers.RegistrationScreen"
             android:parentActivityName=".controllers.StartScreen"></activity>
+        <activity android:name=".controllers.ViewRatsScreen"
+            android:parentActivityName=".controllers.WelcomeScreen"></activity>
     </application>
 
 </manifest>

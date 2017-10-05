@@ -23,7 +23,7 @@ public class ViewRatsScreen extends AppCompatActivity {
      * @param v Current view
      */
     public void onViewListPressed(View v) {
-        Intent logOutPage = new Intent(ViewRatsScreen.this, RatData.class);
+        Intent logOutPage = new Intent(ViewRatsScreen.this, StartScreen.class);
         startActivity(logOutPage);
     }
 
