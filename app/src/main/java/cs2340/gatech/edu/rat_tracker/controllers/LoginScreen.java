@@ -34,16 +34,15 @@ public class LoginScreen extends AppCompatActivity {
                 //check if user exists and handle success or failure
                 Model model = Model.getInstance();
                 if (!model.userExists(new User(username, password, false))) {
-                    new AlertDialog.Builder(LoginScreen.this).setTitle("Login Error")
-                            .setMessage("Unable to login, please try again.")
+                    new AlertDialog.Builder(LoginScreen.this).setTitle(R.string.login_failed_title)
+                            .setMessage(R.string.login_failed_message)
                             .setCancelable(false)
-                            .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     //maybe keep track of fails here idk
                                 }
                             }).show();
-
                 } else {
                     Model.getInstance().setCurrentUser(Model.getInstance().getUser(new User(username, password, false)));
                     Intent loginPage = new Intent(LoginScreen.this, SucessfulLogin.class);
