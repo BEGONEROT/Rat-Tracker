@@ -24,11 +24,9 @@
             android:parentActivityName=".controllers.WelcomeScreen" />
         <activity
             android:name=".controllers.RataData"
-            android:parentActivityName=".controllers.SucessfulLogin"
+            android:parentActivityName=".controllers.ViewRatsScreen"
             />
         <activity android:name=".controllers.WelcomeScreen" />
-        <activity android:name=".controllers.RegistrationScreen"
-            android:parentActivityName=".controllers.StartScreen"/>
         <activity android:name=".controllers.ViewRatsScreen"
             android:parentActivityName=".controllers.WelcomeScreen"/>
     </application>
