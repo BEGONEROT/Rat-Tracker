@@ -26,8 +26,13 @@
         -->
 
         <activity android:name=".controllers.SucessfulLogin" />
-        <activity android:name=".controllers.RegistrationScreen"
-            android:parentActivityName=".controllers.WelcomeScreen"></activity>
+        <activity
+            android:name=".controllers.RegistrationScreen"
+            android:parentActivityName=".controllers.WelcomeScreen" />
+        <activity
+            android:name=".controllers.RataData"
+            android:parentActivityName=".controllers.SucessfulLogin"
+            ></activity>
     </application>
 
 </manifest>
