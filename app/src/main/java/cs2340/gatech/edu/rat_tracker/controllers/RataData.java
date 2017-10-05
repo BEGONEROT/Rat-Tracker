@@ -12,4 +12,5 @@ public class RataData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rata_data);
     }
+    
 }
