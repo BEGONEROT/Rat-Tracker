@@ -29,7 +29,7 @@ public class SucessfulLogin extends AppCompatActivity {
      * @param v Current view
      */
     public void onLogoutPressed(View v) {
-        Intent loginOutPage = new Intent(SucessfulLogin.this, WelcomeScreen.class);
+        Intent loginOutPage = new Intent(SucessfulLogin.this, StartScreen.class);
         startActivity(loginOutPage);
     }
 }

@@ -9,25 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controllers.WelcomeScreen">
+        <activity android:name=".controllers.StartScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".controllers.LoginScreen"
             android:parentActivityName=".controllers.WelcomeScreen" />
-        <!--
-        <activity
-            android:name=".RegisterScreen">
-        </activity>
-        -->
-
         <activity android:name=".controllers.SucessfulLogin" />
-        <activity android:name=".controllers.RegistrationScreen"
-            android:parentActivityName=".controllers.WelcomeScreen"></activity>
+        <activity
+            android:name=".controllers.RegistrationScreen"
+            android:parentActivityName=".controllers.WelcomeScreen" />
+        <activity
+            android:name=".controllers.RataData"
+            android:parentActivityName=".controllers.ViewRatsScreen"
+            />
+        <activity android:name=".controllers.WelcomeScreen" />
+        <activity android:name=".controllers.ViewRatsScreen"
+            android:parentActivityName=".controllers.WelcomeScreen"/>
     </application>
 
 </manifest>
