@@ -11,8 +11,11 @@ import java.sql.DriverManager;
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.DatabaseConnection;
 
-public class WelcomeScreen extends AppCompatActivity {
+/**
+ * Created by Aadarsh on 10/5/2017.
+ */
 
+public class WelcomeScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,22 +29,48 @@ public class WelcomeScreen extends AppCompatActivity {
     }
 
     /**
-     * When the button "Login" is pressed, user is transferred
-     * to the login page.
-     * @param v Current View
+     * Changes the activity to start screen when logout is pressed
+     * @param v Current view
      */
-    public void onLoginPressed(View v) {
-        Intent loginPage = new Intent(WelcomeScreen.this, LoginScreen.class);
-        startActivity(loginPage);
+    public void onNewRatPressed(View v) {
+        Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
+        startActivity(logOutPage);
     }
 
     /**
-     * Transfer user to Registration when register is pressed
-     * @param v
+     * Changes the activity to start screen when logout is pressed
+     * @param v Current view
      */
-    public void onRegisterPressed(View v) {
-        Intent registerPage = new Intent(WelcomeScreen.this, RegistrationScreen.class);
-        startActivity(registerPage);
+    public void onViewRatPressed(View v) {
+        Intent logOutPage = new Intent(WelcomeScreen.this, ViewRatsScreen.class);
+        startActivity(logOutPage);
     }
 
+    /**
+     * Changes the activity to start screen when logout is pressed
+     * @param v Current view
+     */
+    public void onViewStatsPressed(View v) {
+        Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
+        startActivity(logOutPage);
+    }
+
+    /**
+     * Changes the activity to start screen when logout is pressed
+     * @param v Current view
+     */
+    public void onSettingsPressed(View v) {
+        Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
+        startActivity(logOutPage);
+    }
+
+    /**
+     * Changes the activity to start screen when logout is pressed
+     * @param v Current view
+     */
+    public void onLogoutPressed(View v) {
+        Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
+        startActivity(logOutPage);
+    }
 }
+

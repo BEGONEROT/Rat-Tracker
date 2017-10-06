@@ -21,7 +21,7 @@ public class LoginNotification extends DialogFragment {
     public Dialog onCreateDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.login_failed_title)
-                .setMessage(R.string.login_failed_title)
+                .setMessage(R.string.login_failed_message)
                 .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // If user hits OK, shouldn't do anything for now
