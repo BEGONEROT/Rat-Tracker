@@ -3,9 +3,13 @@ package cs2340.gatech.edu.rat_tracker.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
+import java.sql.DriverManager;
+
 import cs2340.gatech.edu.rat_tracker.R;
+import cs2340.gatech.edu.rat_tracker.model.DatabaseConnection;
 
 /**
  * Created by Aadarsh on 10/5/2017.
@@ -16,6 +20,12 @@ public class WelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
+        /*try {
+            DriverManager.getConnection("jdbc:mariadb://localhost:3306/test");
+        } catch (Exception e) {
+            Log.d("PLEASE: ", "not working");
+        }*/
+        DatabaseConnection connection = DatabaseConnection.getInstance();
     }
 
     /**
