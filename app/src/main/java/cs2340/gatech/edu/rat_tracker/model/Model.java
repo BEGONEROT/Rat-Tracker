@@ -1,6 +1,7 @@
 package cs2340.gatech.edu.rat_tracker.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,6 +17,7 @@ public class Model {
 
     //objects stored
     private List<User> users;
+    private List<Sighting> sightings;
     private User current_user;
 
     /**
@@ -24,6 +26,12 @@ public class Model {
     //constructor
     private Model() {
         this.users = new ArrayList<User>();
+        //temp user
+        users.add(new User());
+        this.sightings = new ArrayList<Sighting>();
+        //temporary
+        Date now = new Date();
+        sightings.add(new Sighting(1, now, "House", "45701", "7 Maple Grove Way", "Athens", "Da Hood", 41.5, 42.3));
         this.current_user = null;
     }
 
@@ -57,6 +65,9 @@ public class Model {
         return null;
     }
 
+    public List<Sighting> getSightings() {
+        return this.sightings;
+    }
     /**
      * Adds a user
      *
@@ -69,7 +80,7 @@ public class Model {
     /**
      * Set the current_user to user passed through
      *
-     * @param user user current_user will be set to
+     * @param user user current_user wisll be set to
      */
     public void setCurrentUser(User user) {
         current_user = user;
@@ -83,4 +94,9 @@ public class Model {
     public User getCurrentUser() {
         return current_user;
     }
+
+    public void addSighting(Sighting addme) {
+        sightings.add(addme);
+    }
+
 }
