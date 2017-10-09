@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import cs2340.gatech.edu.rat_tracker.R;
+import cs2340.gatech.edu.rat_tracker.model.DatabaseConnection;
 
 public class WelcomeScreen extends AppCompatActivity {
 
@@ -13,6 +14,7 @@ public class WelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
+        DatabaseConnection connection = DatabaseConnection.getInstance();
     }
 
     /**
