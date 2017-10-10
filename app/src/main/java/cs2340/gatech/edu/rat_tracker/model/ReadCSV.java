@@ -6,7 +6,11 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.HashMap;
 
-public class ReadCSV {
+// Everything is commented out for the time being. All parsing currently exists in the Model for M6.
+// The database will eventually handle parsing the data and the Model will be able to access the
+// database for the information.
+
+//public class ReadCSV {
 	/*
 	Unique Key.  0
 	Location Type 7
@@ -19,7 +23,7 @@ public class ReadCSV {
 	*/
 
 
-	public static void main(String[] args) throws IOException {
+	/*public static void main(String[] args) throws IOException {
 		// open file input stream
 		BufferedReader reader = new BufferedReader(new FileReader(
 				"Rat_Sightings.csv"));
@@ -55,6 +59,6 @@ public class ReadCSV {
 		
 
 		
-	}
+	}*/
 
-}
+//}
