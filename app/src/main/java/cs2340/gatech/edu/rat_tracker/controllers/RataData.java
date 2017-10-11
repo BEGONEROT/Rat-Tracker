@@ -18,6 +18,8 @@ import  cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
 public class RataData extends ListActivity {
 
+    private ArrayList<RatSighting> sightings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +30,16 @@ public class RataData extends ListActivity {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<RatSighting> sightings = new ArrayList<>(Model.getInstance().getAllRatData().values());
+        sightings = new ArrayList<>(Model.getInstance().getAllRatData().values());
         ratdataview.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, sightings));
     }
 
     @Override
     public void onListItemClick(ListView item, View v, int position, long id)  {
         Intent intent = new Intent(getBaseContext(), RatDetails.class);
-        
-        intent.putExtra("SIGHTING", Model.getInstance().getAllRatData());
+        // You need to replace this last part VVVVVVVVVVVVVVVVVVVVVVVVVV with the specific rat clicked on
+        //intent.putExtra("SIGHTING", Model.getInstance().getAllRatData());
+        // You can also use Model.getInstance().getKeyList() to just get the keys to search the map quicker (i think)
         startActivity(intent);
     }
 
@@ -52,7 +55,7 @@ public class RataData extends ListActivity {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<RatSighting> sightings = new ArrayList<>(Model.getInstance().getAllRatData().values());
+        sightings = new ArrayList<>(Model.getInstance().getAllRatData().values());
         ratdataview.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, sightings));
     }
     
