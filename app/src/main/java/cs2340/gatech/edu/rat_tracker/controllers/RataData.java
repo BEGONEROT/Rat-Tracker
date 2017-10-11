@@ -35,7 +35,7 @@ public class RataData extends ListActivity {
     @Override
     public void onListItemClick(ListView item, View v, int position, long id)  {
         Intent intent = new Intent(getBaseContext(), RatDetails.class);
-        intent.putExtra("SIGHTING", ratSighting);
+        intent.putExtra("SIGHTING", RatData);
         startActivity(intent);
     }
 
