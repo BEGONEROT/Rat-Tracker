@@ -1,6 +1,9 @@
 package cs2340.gatech.edu.rat_tracker.model;
 
+<<<<<<< HEAD
+=======
 import android.os.AsyncTask;
+>>>>>>> master
 import android.util.Log;
 
 import java.sql.Connection;
