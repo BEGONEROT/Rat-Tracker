@@ -14,17 +14,6 @@ import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 public class RatDetails extends Activity {
 
     private RatSighting currentRat;
-    /*
-	Unique Key          0
-	Date                1
-	Location Type       7
-	Incident Zip        8
-	Incident Address    9
-	City                16
-	Borough             17
-	Latitude            len - 3
-	Longitude           len - 2
-	*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,22 +23,27 @@ public class RatDetails extends Activity {
         loadData(currentRat);
     }
 
+    /**
+     * Updates the text fields in the display with the data from a RatSighting
+     *
+     * @param rat RatSighting to get data from
+     */
     private void loadData(RatSighting rat) {
-        TextView key = (TextView) (R.id.data_key_title);
+        TextView key = (TextView) findViewById(R.id.data_key_title);
         key.setText("#" + rat.getKey());
-        TextView date = (TextView) (R.id.date);
+        TextView date = (TextView) findViewById(R.id.date);
         date.setText(rat.getDate());
-        TextView lType = (TextView) (R.id.location_type);
+        TextView lType = (TextView) findViewById(R.id.location_type);
         lType.setText(rat.getLocationType());
-        TextView address = (TextView) (R.id.address);
+        TextView address = (TextView) findViewById(R.id.address);
         address.setText(rat.getIncidentAddress());
-        TextView city = (TextView) (R.id.city);
+        TextView city = (TextView) findViewById(R.id.city);
         city.setText(rat.getCity());
-        TextView zip = (TextView) (R.id.zip_code);
+        TextView zip = (TextView) findViewById(R.id.zip_code);
         zip.setText(rat.getIncidentZip());
-        TextView borough = (TextView) (R.id.borough);
+        TextView borough = (TextView) findViewById(R.id.borough);
         borough.setText(rat.getBorough());
-        TextView coordinates = (TextView) (R.id.cordinates);
+        TextView coordinates = (TextView) findViewById(R.id.coordinates);
         coordinates.setText("X:" + rat.getLatitude() + ", Y:" + rat.getLongitude());
     }
 
