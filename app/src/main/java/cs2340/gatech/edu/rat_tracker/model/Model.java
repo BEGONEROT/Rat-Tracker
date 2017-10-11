@@ -23,6 +23,7 @@ public class Model {
     private List<User> users;
     private User current_user;
     private HashMap<Integer, RatData> rats;
+    private List<Integer> keyList;
 
     /**
      * Constructs a Model Object, initializes users and current_user
@@ -59,6 +60,7 @@ public class Model {
                 raw = scanner.nextLine().split(",");
                 raw[raw.length - 2] = raw[raw.length - 2].replace("\"(","");
                 key = Integer.parseInt(raw[0]);
+                keyList.add(key);
                 data = new RatData(raw);
                 rats.put(key, data);
             }
@@ -76,6 +78,13 @@ public class Model {
     public HashMap<Integer, RatData> getAllRatData() {
         return rats;
     }
+
+    /**
+     * For getting just a list of the keys. Easier to keep track of individual data points
+     *
+     * @return all keys in the rats HashMap
+     */
+    public List<Integer> getKeyList() { return keyList; }
 
     /**
      * Sees if the user is an existing user
