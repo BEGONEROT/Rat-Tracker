@@ -52,7 +52,7 @@ public class Model {
         Scanner scanner;
         Integer key;
         String[] raw;
-        RatData data;
+        RatSighting data;
 
         while ((line = reader.readLine()) != null) {
             scanner = new Scanner(line);
@@ -61,7 +61,7 @@ public class Model {
                 raw[raw.length - 2] = raw[raw.length - 2].replace("\"(","");
                 key = Integer.parseInt(raw[0]);
                 keyList.add(key);
-                data = new RatData(raw);
+                data = new RatSighting(raw);
                 rats.put(key, data);
             }
         }
@@ -75,7 +75,7 @@ public class Model {
      *
      * @return all rats stored in the app
      */
-    public HashMap<Integer, RatData> getAllRatData() {
+    public HashMap<Integer, RatSighting> getAllRatData() {
         return rats;
     }
 

@@ -30,7 +30,8 @@ public class RatDetails extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rat_details);
-        //currentRat = getIntent().getComponent();
+        currentRat = getIntent().getParcelableExtra("SIGHTING");
+        loadData(currentRat);
     }
 
     private void loadData(RatSighting rat) {
