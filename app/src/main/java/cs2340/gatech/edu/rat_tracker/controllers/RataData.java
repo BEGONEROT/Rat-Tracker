@@ -9,11 +9,12 @@ import android.widget.ListView;
 import android.content.Intent;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
-import  cs2340.gatech.edu.rat_tracker.model.RatData;
+import  cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
 public class RataData extends ListActivity {
 
@@ -27,14 +28,14 @@ public class RataData extends ListActivity {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
-        HashMap<Integer, RatData> sightings = (HashMap<Integer, RatData>) Model.getInstance().getAllRatData();
+        ArrayList<RatSighting> sightings = new ArrayList<>(Model.getInstance().getAllRatData().values());
         ratdataview.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, sightings));
     }
 
     @Override
     public void onListItemClick(ListView item, View v, int position, long id)  {
         Intent intent = new Intent(getBaseContext(), RatDetails.class);
+        
         intent.putExtra("SIGHTING", Model.getInstance().getAllRatData());
         startActivity(intent);
     }
@@ -51,7 +52,7 @@ public class RataData extends ListActivity {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        HashMap<Integer, RatData> sightings = (HashMap<Integer, RatData>) Model.getInstance().getAllRatData();
+        ArrayList<RatSighting> sightings = new ArrayList<>(Model.getInstance().getAllRatData().values());
         ratdataview.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, sightings));
     }
     

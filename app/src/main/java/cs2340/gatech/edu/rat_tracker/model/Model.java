@@ -22,7 +22,7 @@ public class Model {
     //objects stored
     private List<User> users;
     private User current_user;
-    private HashMap<Integer, RatSighting> rats;
+    private HashMap<Integer, RatSighting> rats = new HashMap<>(100);
     private List<Integer> keyList;
 
     /**
