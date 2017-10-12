@@ -23,13 +23,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
 
     protected static class ViewHolder extends RecyclerView.ViewHolder {
-        protected TextView myTextView;
+        protected TextView key;
+        protected TextView date;
         protected ViewHolder(TextView v) {
             super(v);
-            myTextView = v;
-        }
-        protected TextView getTextView() {
-            return myTextView;
+            key = (TextView) v.findViewById(R.id.key);
+            date = (TextView) v.findViewById(R.id.date);
         }
     }
 
@@ -48,7 +47,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         RatSighting rat = data.get(position);
-        holder.getTextView().setText("Rat Report: " + rat.getKey().toString() + " " + rat.getDate() );
+        holder.key.setText(rat.getKey().toString());
+        holder.date.setText(rat.getDate());
     }
 
     @Override
