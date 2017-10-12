@@ -40,6 +40,21 @@ public class RataData extends AppCompatActivity {
         HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
         adapter = new CustomAdapter(sightings.values());
         ratdataview.setAdapter(adapter);
+        ratdataview.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, ratdataview ,new RecyclerItemClickListener.OnItemClickListener() {
+                    private ArrayList<RatSighting> data;
+                    @Override public void onItemClick(View view, int position) {
+                        data = adapter.getData();
+                        Intent intent = new Intent(getBaseContext(), RatDetails.class);
+                        intent.putExtra("SIGHTING", data.get(position));
+                        startActivity(intent);
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        this.onItemClick(view, position);
+                    }
+                })
+        );
     }
 
     /*
