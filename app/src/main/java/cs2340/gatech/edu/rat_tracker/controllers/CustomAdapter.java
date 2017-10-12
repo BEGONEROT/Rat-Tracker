@@ -20,6 +20,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     private ArrayList<RatData> data;
 
+
     protected static class ViewHolder extends RecyclerView.ViewHolder {
         protected TextView myTextView;
         protected ViewHolder(TextView v) {

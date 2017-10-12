@@ -23,14 +23,6 @@ public class DatabaseConnection {
 
     private DatabaseConnection() {
         try {
-<<<<<<< HEAD
-            this.connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/begone_rot?user=root&password=dpagan55");
-        } catch (Exception e) {
-            Log.d(TAG, "Failed to connect!");
-        }
-    }
-
-=======
             //this.connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/begone_rot");
             this.connection = null;
             Connect();
@@ -40,6 +32,7 @@ public class DatabaseConnection {
             Log.d(TAG, "shit man");
         }
     }
+
 
     public static void setConnection(Connection connection) {
         getInstance().setConnectionHelp(connection);
@@ -70,7 +63,7 @@ public class DatabaseConnection {
     }
 
 
->>>>>>> master
+
     public Statement getStatement() {
         try {
             return connection.createStatement();
@@ -78,8 +71,7 @@ public class DatabaseConnection {
             return null;
         }
     }
-<<<<<<< HEAD
-=======
+
 
 
     private void setConnectionHelp(Connection connection) {
@@ -92,5 +84,5 @@ public class DatabaseConnection {
     }
 
 
->>>>>>> master
+
 }
