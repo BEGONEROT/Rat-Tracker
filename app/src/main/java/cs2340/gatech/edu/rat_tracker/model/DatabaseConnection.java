@@ -33,7 +33,6 @@ public class DatabaseConnection {
         }
     }
 
-
     public static void setConnection(Connection connection) {
         getInstance().setConnectionHelp(connection);
     }
@@ -72,8 +71,6 @@ public class DatabaseConnection {
         }
     }
 
-
-
     private void setConnectionHelp(Connection connection) {
         this.connection = connection;
     }
@@ -82,7 +79,5 @@ public class DatabaseConnection {
         Connect task = new Connect();
         task.execute("", null, null);
     }
-
-
 
 }
