@@ -55,4 +55,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public int getItemCount() {
         return data.size();
     }
+
+    /*
+ * This method gets an ArrayList of the rat data.
+ *
+ * @return rat data
+ */
+    public ArrayList<RatSighting> getData() {
+        return data;
+    }
 }

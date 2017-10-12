@@ -23,8 +23,6 @@ public class RataData extends AppCompatActivity {
     private CustomAdapter adapter;
     private RecyclerView.LayoutManager layout;
 
-    private ArrayList<RatSighting> sightings;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
