@@ -43,7 +43,7 @@ public class Model {
      * Parses the rat data from Rat_Sightings.csv when the application is started. Rat data is
      * stored in a HashMap using the unique key as a key
      */
-    public void readRatData() throws IOException {
+    private void readRatData() throws IOException {
         // open file input stream
         BufferedReader reader = new BufferedReader(new FileReader("Rat_Sightings.csv"));
 

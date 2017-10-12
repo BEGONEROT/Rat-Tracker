@@ -31,12 +31,6 @@ public class RataData extends AppCompatActivity {
         ratdataview.setHasFixedSize(true);
         layout = new LinearLayoutManager(this);
         ratdataview.setLayoutManager(layout);
-
-        try {
-            Model.getInstance().readRatData();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
         HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
         adapter = new CustomAdapter(sightings.values());
         ratdataview.setAdapter(adapter);
@@ -63,11 +57,6 @@ public class RataData extends AppCompatActivity {
      * @param v the view
      */
     public void onRefreshPressed(View v) {
-        try {
-            Model.getInstance().readRatData();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
         HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
         adapter = new CustomAdapter(sightings.values());
         ratdataview.setAdapter(adapter);
