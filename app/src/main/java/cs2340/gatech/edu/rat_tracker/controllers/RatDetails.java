@@ -20,6 +20,7 @@ public class RatDetails extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rat_details);
         currentRat = getIntent().getParcelableExtra("SIGHTING");
+        System.out.println(currentRat.getDate());
         loadData(currentRat);
     }
 
@@ -30,7 +31,7 @@ public class RatDetails extends Activity {
      */
     private void loadData(RatSighting rat) {
         TextView key = (TextView) findViewById(R.id.data_key_title);
-        key.setText("#" + rat.getKey());
+        key.setText("#" + rat.getKey().toString());
         TextView date = (TextView) findViewById(R.id.date);
         date.setText(rat.getDate());
         TextView lType = (TextView) findViewById(R.id.location_type);

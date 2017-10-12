@@ -1,5 +1,6 @@
 package cs2340.gatech.edu.rat_tracker.controllers;
 
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,7 +29,8 @@ public class RataData extends AppCompatActivity {
         ratdataview.setHasFixedSize(true);
         layout = new LinearLayoutManager(this);
         ratdataview.setLayoutManager(layout);
-        HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
+       HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
+
         adapter = new SightingListAdapter(sightings.values());
         ratdataview.setAdapter(adapter);
         ratdataview.addOnItemTouchListener(
@@ -37,7 +39,7 @@ public class RataData extends AppCompatActivity {
                     @Override public void onItemClick(View view, int position) {
                         data = adapter.getData();
                         Intent intent = new Intent(getBaseContext(), RatDetails.class);
-                        intent.putExtra("SIGHTING", data.get(position));
+                        intent.putExtra("SIGHTING", (Parcelable) data.get(position));
                         startActivity(intent);
                     }
 

@@ -19,6 +19,18 @@ public class Model {
         return ourInstance;
     }
 
+    /*
+    	Unique Key          0
+	Date                1
+	Location Type       7
+	Incident Zip        8
+	Incident Address    9
+	City                16
+	Borough             17
+	Latitude            len - 3
+	Longitude           len - 2
+     */
+
     //objects stored
     private List<User> users;
     private User current_user;
@@ -32,11 +44,16 @@ public class Model {
     private Model() {
         this.users = new ArrayList<User>();
         this.current_user = null;
+        rats.put(1, new RatSighting(new String[] {"1","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
+        rats.put(2, new RatSighting(new String[] {"2","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
+        rats.put(3, new RatSighting(new String[] {"3","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
+        /*
         try {
             readRatData();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+        */
     }
 
     /**

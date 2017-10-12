@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.view.View;
 import java.util.Collection;
 import java.util.ArrayList;
 
@@ -23,7 +24,7 @@ public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapte
     protected static class ViewHolder extends RecyclerView.ViewHolder {
         protected TextView key;
         protected TextView date;
-        protected ViewHolder(TextView v) {
+        protected ViewHolder(View v) {
             super(v);
             key = (TextView) v.findViewById(R.id.key);
             date = (TextView) v.findViewById(R.id.date);
@@ -36,7 +37,7 @@ public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapte
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        TextView v = (TextView) LayoutInflater.from(parent.getContext())
+        View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.rat_sightings, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
