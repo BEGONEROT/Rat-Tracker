@@ -4,14 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.support.v7.widget.RecyclerView;
 import android.content.Intent;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.ArrayList;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
@@ -20,7 +17,7 @@ import  cs2340.gatech.edu.rat_tracker.model.RatSighting;
 public class RataData extends AppCompatActivity {
 
     private RecyclerView ratdataview;
-    private CustomAdapter adapter;
+    private SightingListAdapter adapter;
     private RecyclerView.LayoutManager layout;
 
     @Override
@@ -32,7 +29,7 @@ public class RataData extends AppCompatActivity {
         layout = new LinearLayoutManager(this);
         ratdataview.setLayoutManager(layout);
         HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
-        adapter = new CustomAdapter(sightings.values());
+        adapter = new SightingListAdapter(sightings.values());
         ratdataview.setAdapter(adapter);
         ratdataview.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, ratdataview ,new RecyclerItemClickListener.OnItemClickListener() {
@@ -58,7 +55,7 @@ public class RataData extends AppCompatActivity {
      */
     public void onRefreshPressed(View v) {
         HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
-        adapter = new CustomAdapter(sightings.values());
+        adapter = new SightingListAdapter(sightings.values());
         ratdataview.setAdapter(adapter);
     }
     
