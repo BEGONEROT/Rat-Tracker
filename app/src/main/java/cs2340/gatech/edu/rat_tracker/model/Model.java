@@ -22,7 +22,8 @@ public class Model {
     //objects stored
     private List<User> users;
     private User current_user;
-    private HashMap<Integer, RatData> rats;
+    private HashMap<Integer, RatSighting> rats = new HashMap<>(100);
+    private List<Integer> keyList;
 
     /**
      * Constructs a Model Object, initializes users and current_user
@@ -51,7 +52,7 @@ public class Model {
         Scanner scanner;
         Integer key;
         String[] raw;
-        RatData data;
+        RatSighting data;
 
         while ((line = reader.readLine()) != null) {
             scanner = new Scanner(line);
@@ -59,7 +60,8 @@ public class Model {
                 raw = scanner.nextLine().split(",");
                 raw[raw.length - 2] = raw[raw.length - 2].replace("\"(","");
                 key = Integer.parseInt(raw[0]);
-                data = new RatData(raw);
+                keyList.add(key);
+                data = new RatSighting(raw);
                 rats.put(key, data);
             }
         }
@@ -73,9 +75,16 @@ public class Model {
      *
      * @return all rats stored in the app
      */
-    public HashMap<Integer, RatData> getAllRatData() {
+    public HashMap<Integer, RatSighting> getAllRatData() {
         return rats;
     }
+
+    /**
+     * For getting just a list of the keys. Easier to keep track of individual data points
+     *
+     * @return all keys in the rats HashMap
+     */
+    public List<Integer> getKeyList() { return keyList; }
 
     /**
      * Sees if the user is an existing user

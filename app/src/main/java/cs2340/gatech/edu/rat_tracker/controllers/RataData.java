@@ -9,18 +9,21 @@ import android.support.v7.widget.RecyclerView;
 import android.content.Intent;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ArrayList;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
-import  cs2340.gatech.edu.rat_tracker.model.RatData;
+import  cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
 public class RataData extends AppCompatActivity {
 
     private RecyclerView ratdataview;
     private CustomAdapter adapter;
     private RecyclerView.LayoutManager layout;
+
+    private ArrayList<RatSighting> sightings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +39,10 @@ public class RataData extends AppCompatActivity {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
-        HashMap<Integer, RatData> sightings = (HashMap<Integer, RatData>) Model.getInstance().getAllRatData();
+        HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
         adapter = new CustomAdapter(sightings.values());
         ratdataview.setAdapter(adapter);
     }
-
 
     /*
      * This method refreshes the information in the ListView
@@ -54,7 +55,7 @@ public class RataData extends AppCompatActivity {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        HashMap<Integer, RatData> sightings = (HashMap<Integer, RatData>) Model.getInstance().getAllRatData();
+        HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
         adapter = new CustomAdapter(sightings.values());
         ratdataview.setAdapter(adapter);
     }

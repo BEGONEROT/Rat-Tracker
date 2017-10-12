@@ -9,8 +9,9 @@ import java.util.Collection;
 import java.util.ArrayList;
 
 
-import cs2340.gatech.edu.rat_tracker.model.RatData;
+import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 import cs2340.gatech.edu.rat_tracker.R;
+import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
 /**
  * Created by dwarr on 10/11/2017.
@@ -18,7 +19,7 @@ import cs2340.gatech.edu.rat_tracker.R;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
-    private ArrayList<RatData> data;
+    private ArrayList<RatSighting> data;
 
 
     protected static class ViewHolder extends RecyclerView.ViewHolder {
@@ -32,8 +33,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         }
     }
 
-    public CustomAdapter (Collection<RatData> ratData) {
-        data = new ArrayList<RatData>(ratData);
+    public CustomAdapter (Collection<RatSighting> ratData) {
+        data = new ArrayList<RatSighting>(ratData);
     }
 
     @Override
@@ -46,7 +47,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        RatData rat = data.get(position);
+        RatSighting rat = data.get(position);
         holder.getTextView().setText("Rat Report: " + rat.getKey().toString() + " " + rat.getDate() );
     }
 
