@@ -25,7 +25,7 @@ public class WelcomeScreen extends AppCompatActivity {
         } catch (Exception e) {
             Log.d("PLEASE: ", "not working");
         }*/
-        DatabaseConnection connection = DatabaseConnection.getInstance();
+        //DatabaseConnection connection = DatabaseConnection.getInstance();
     }
 
     /**
