@@ -32,8 +32,8 @@ public class Model {
      */
 
     //objects stored
-    private List<User> users;
-    private User current_user;
+    //private List<User> users;
+    //private User current_user;
     private HashMap<Integer, RatSighting> rats = new HashMap<>(100);
     private List<Integer> keyList;
 
@@ -42,8 +42,8 @@ public class Model {
      */
     //constructor
     private Model() {
-        this.users = new ArrayList<User>();
-        this.current_user = null;
+        //this.users = new ArrayList<User>();
+        //this.current_user = null;
         rats.put(1, new RatSighting(new String[] {"1","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
         rats.put(2, new RatSighting(new String[] {"2","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
         rats.put(3, new RatSighting(new String[] {"3","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
@@ -103,12 +103,12 @@ public class Model {
      */
     public List<Integer> getKeyList() { return keyList; }
 
-    /**
+    /* /**
      * Sees if the user is an existing user
      *
      * @param amialive user being checked
      * @return true if user exist, false otherwise
-     */
+     *
     public boolean userExists(User amialive) {
         for (User user: users) {
             if (user.toString().equals(amialive.toString())) {
@@ -123,7 +123,7 @@ public class Model {
      *
      * @param amialive user trying to be got
      * @return user if they are found, null otherwise
-     */
+     *
     public User getUser(User amialive) {
         for (User user: users) {
             if (user.toString().equals(amialive.toString())) {
@@ -137,7 +137,7 @@ public class Model {
      * Adds a user
      *
      * @param addme user to be added
-     */
+     *
     public void addUser(User addme) {
         users.add(addme);
     }
@@ -146,7 +146,7 @@ public class Model {
      * Set the current_user to user passed through
      *
      * @param user user current_user will be set to
-     */
+     *
     public void setCurrentUser(User user) {
         current_user = user;
     }
@@ -155,8 +155,9 @@ public class Model {
      * Getter for current_user
      *
      * @return current_user
-     */
+     *
     public User getCurrentUser() {
         return current_user;
     }
+    */
 }
