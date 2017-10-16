@@ -40,7 +40,7 @@ public class LoginScreen extends AppCompatActivity {
                 String password = passwordview.getText().toString();
                 //check if user exists and handle success or failure
                 Model model = Model.getInstance();
-                
+
                 if (!model.userExists(new User(username, password, false))) {
                     new AlertDialog.Builder(LoginScreen.this).setTitle(R.string.login_failed_title)
                             .setMessage(R.string.login_failed_message)
