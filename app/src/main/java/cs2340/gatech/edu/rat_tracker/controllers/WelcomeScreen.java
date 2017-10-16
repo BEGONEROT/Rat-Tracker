@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.sql.DriverManager;
 
 import cs2340.gatech.edu.rat_tracker.R;
@@ -25,7 +28,11 @@ public class WelcomeScreen extends AppCompatActivity {
         } catch (Exception e) {
             Log.d("PLEASE: ", "not working");
         }*/
-        DatabaseConnection connection = DatabaseConnection.getInstance();
+        //DatabaseConnection connection = DatabaseConnection.getInstance();
+        /*FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message");
+
+        myRef.setValue("Hello, World!");*/
     }
 
     /**
