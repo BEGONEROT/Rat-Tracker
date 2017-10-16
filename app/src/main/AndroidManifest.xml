@@ -19,7 +19,6 @@
         <activity
             android:name=".controllers.LoginScreen"
             android:parentActivityName=".controllers.WelcomeScreen" />
-        <activity android:name=".controllers.SucessfulLogin" />
         <activity
             android:name=".controllers.RegistrationScreen"
             android:parentActivityName=".controllers.WelcomeScreen" />
