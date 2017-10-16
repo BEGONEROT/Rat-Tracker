@@ -1,7 +1,12 @@
 package cs2340.gatech.edu.rat_tracker.model;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Created by dayynn on 9/28/17.
@@ -14,9 +19,23 @@ public class Model {
         return ourInstance;
     }
 
+    /*
+    Unique Key          0
+	Date                1
+	Location Type       7
+	Incident Zip        8
+	Incident Address    9
+	City                16
+	Borough             17
+	Latitude            len - 3
+	Longitude           len - 2
+     */
+
     //objects stored
     private List<User> users;
     private User current_user;
+    private HashMap<Integer, RatSighting> rats = new HashMap<>(100);
+    private List<Integer> keyList;
 
     /**
      * Constructs a Model Object, initializes users and current_user
@@ -25,7 +44,64 @@ public class Model {
     private Model() {
         this.users = new ArrayList<User>();
         this.current_user = null;
+        rats.put(1, new RatSighting(new String[] {"1","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
+        rats.put(2, new RatSighting(new String[] {"2","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
+        rats.put(3, new RatSighting(new String[] {"3","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
+        /*
+        try {
+            readRatData();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        */
     }
+
+    /**
+     * Parses the rat data from Rat_Sightings.csv when the application is started. Rat data is
+     * stored in a HashMap using the unique key as a key
+     */
+    private void readRatData() throws IOException {
+        // open file input stream
+        BufferedReader reader = new BufferedReader(new FileReader("Rat_Sightings.csv"));
+
+        // read file line by line
+        String line;
+        Scanner scanner;
+        Integer key;
+        String[] raw;
+        RatSighting data;
+
+        while ((line = reader.readLine()) != null) {
+            scanner = new Scanner(line);
+            while (scanner.hasNext()) {
+                raw = scanner.nextLine().split(",");
+                raw[raw.length - 2] = raw[raw.length - 2].replace("\"(","");
+                key = Integer.parseInt(raw[0]);
+                keyList.add(key);
+                data = new RatSighting(raw);
+                rats.put(key, data);
+            }
+        }
+
+        //close reader
+        reader.close();
+    }
+
+    /**
+     * For use in RataData screen
+     *
+     * @return all rats stored in the app
+     */
+    public HashMap<Integer, RatSighting> getAllRatData() {
+        return rats;
+    }
+
+    /**
+     * For getting just a list of the keys. Easier to keep track of individual data points
+     *
+     * @return all keys in the rats HashMap
+     */
+    public List<Integer> getKeyList() { return keyList; }
 
     /**
      * Sees if the user is an existing user

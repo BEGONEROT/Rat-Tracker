@@ -133,7 +133,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="123 Rainy St, Atlanta, GA 30313"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
@@ -141,7 +141,7 @@
         app:layout_constraintVertical_bias="0.81" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/submit"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:text="Submit"

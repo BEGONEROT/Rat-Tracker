@@ -62,6 +62,7 @@ public class DatabaseConnection {
     }
 
 
+
     public Statement getStatement() {
         try {
             return connection.createStatement();
@@ -69,7 +70,6 @@ public class DatabaseConnection {
             return null;
         }
     }
-
 
     private void setConnectionHelp(Connection connection) {
         this.connection = connection;
@@ -79,6 +79,5 @@ public class DatabaseConnection {
         Connect task = new Connect();
         task.execute("", null, null);
     }
-
 
 }
