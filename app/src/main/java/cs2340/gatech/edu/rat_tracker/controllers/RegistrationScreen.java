@@ -35,6 +35,7 @@ public class RegistrationScreen extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "RegistrationScreen: ";
+    private Boolean isAdmin;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +69,7 @@ public class RegistrationScreen extends AppCompatActivity {
                 String username = usernameField.getText().toString();
                 TextView passwordField = (TextView) findViewById(R.id.registerpassword);
                 String password = passwordField.getText().toString();
-                Boolean isAdmin = checkBox.isChecked();
+                isAdmin = checkBox.isChecked();
 
                 createAccount(username, password);
 
@@ -112,6 +113,9 @@ public class RegistrationScreen extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                             failedRegister();
                         } else {
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference myRef = database.getReference("users/" + FirebaseAuth.getInstance().getCurrentUser().getUid());
+                            myRef.child("isAdmin").setValue(isAdmin);
                             successRegister();
                         }
                     }
@@ -131,6 +135,7 @@ public class RegistrationScreen extends AppCompatActivity {
     }
 
     public void successRegister() {
+
         new AlertDialog.Builder(RegistrationScreen.this).setTitle("Successful Registration")
                 .setMessage("Hit OK to proceed to login.")
                 .setCancelable(false)
