@@ -13,13 +13,11 @@ import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
 public class RatDetails extends Activity {
 
-    private RatSighting currentRat;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rat_details);
-        currentRat = getIntent().getParcelableExtra("SIGHTING");
+        final RatSighting currentRat = (RatSighting) this.getIntent().getSerializableExtra("SIGHTING");
         System.out.println(currentRat.getDate());
         loadData(currentRat);
     }

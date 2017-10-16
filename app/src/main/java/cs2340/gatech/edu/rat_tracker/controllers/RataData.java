@@ -39,7 +39,7 @@ public class RataData extends AppCompatActivity {
                     @Override public void onItemClick(View view, int position) {
                         data = adapter.getData();
                         Intent intent = new Intent(getBaseContext(), RatDetails.class);
-                        intent.putExtra("SIGHTING", (Parcelable) data.get(position));
+                        intent.putExtra("SIGHTING", data.get(position));
                         startActivity(intent);
                     }
 
