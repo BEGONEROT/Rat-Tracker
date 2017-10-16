@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "732564129955",
+    "firebase_url": "https://begone-rot.firebaseio.com",
+    "project_id": "begone-rot",
+    "storage_bucket": "begone-rot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732564129955:android:7492671c2bffb818",
+        "android_client_info": {
+          "package_name": "cs2340.gatech.edu.rat_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732564129955-qfkljvqqfivpqf7pj9vbeugf35fplaau.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cs2340.gatech.edu.rat_tracker",
+            "certificate_hash": "fc2fa1832c599bbf22395fe7eeebe1bf260cfb07"
+          }
+        },
+        {
+          "client_id": "732564129955-dqir50pse99sovposm488op965r1kob0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChE8oY-zNY0gX9ycVZ4OPm1qMoWOaCCZ8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732564129955-dqir50pse99sovposm488op965r1kob0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

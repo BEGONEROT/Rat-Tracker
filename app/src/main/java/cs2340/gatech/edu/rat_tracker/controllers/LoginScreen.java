@@ -5,9 +5,16 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
@@ -33,6 +40,7 @@ public class LoginScreen extends AppCompatActivity {
                 String password = passwordview.getText().toString();
                 //check if user exists and handle success or failure
                 Model model = Model.getInstance();
+                
                 if (!model.userExists(new User(username, password, false))) {
                     new AlertDialog.Builder(LoginScreen.this).setTitle(R.string.login_failed_title)
                             .setMessage(R.string.login_failed_message)

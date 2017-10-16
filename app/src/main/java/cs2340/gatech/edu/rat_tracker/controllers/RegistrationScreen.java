@@ -12,6 +12,11 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
 import cs2340.gatech.edu.rat_tracker.model.User;
@@ -34,8 +39,13 @@ public class RegistrationScreen extends AppCompatActivity {
                 String username = usernameField.getText().toString();
                 TextView passwordField = (TextView) findViewById(R.id.registerpassword);
                 String password = passwordField.getText().toString();
-                boolean isAdmin = checkBox.isChecked();
+                Boolean isAdmin = checkBox.isChecked();
                 Model.getInstance().addUser(new User(username, password, isAdmin));
+                //Firebase write
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("users/" + username);
+                myRef.child("isAdmin").setValue(isAdmin);
+                myRef.child("password").setValue(password);
                 new AlertDialog.Builder(RegistrationScreen.this).setTitle("Successful Registration")
                         .setMessage("Congratulations on your registration! Hit OK to go to login.")
                         .setCancelable(false)
