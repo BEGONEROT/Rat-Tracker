@@ -31,6 +31,8 @@
             android:parentActivityName=".controllers.WelcomeScreen"/>
         <activity android:name=".controllers.RatDetails"
             android:parentActivityName=".controllers.RataData"/>
+        <activity android:name=".controllers.ReportSightingScreen"
+            android:parentActivityName=".controllers.WelcomeScreen"/>
     </application>
 
 </manifest>
