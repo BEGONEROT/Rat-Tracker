@@ -97,7 +97,7 @@ public class Model {
                             snapshot.child("Incident Zip").getValue().toString(),
                             snapshot.child("Incident Address").getValue().toString(),
                             snapshot.child("City").getValue().toString(),
-                            null,
+                            snapshot.child("Borough").getValue().toString(),
                             Double.parseDouble(snapshot.child("Latitude").getValue().toString()),
                             Double.parseDouble(snapshot.child("Longitude").getValue().toString())));
                 }
