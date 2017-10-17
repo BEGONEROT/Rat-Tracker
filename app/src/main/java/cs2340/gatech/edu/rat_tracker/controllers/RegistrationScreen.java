@@ -8,12 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,12 +20,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-
 import cs2340.gatech.edu.rat_tracker.R;
-import cs2340.gatech.edu.rat_tracker.model.Model;
-import cs2340.gatech.edu.rat_tracker.model.User;
 
+/**
+ * Screen for registering a new user
+ */
 public class RegistrationScreen extends AppCompatActivity {
 
     private CheckBox checkBox;
@@ -37,6 +33,10 @@ public class RegistrationScreen extends AppCompatActivity {
     private static final String TAG = "RegistrationScreen: ";
     private Boolean isAdmin;
 
+    /**
+     * Creates the screen, uses Firebase to update the users
+     * @param savedInstanceState current instance
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_screen);
@@ -94,6 +94,12 @@ public class RegistrationScreen extends AppCompatActivity {
         });
     }
 
+    /**
+     * Creates the account using the given email and password
+     * Uses Firebase to create the new user
+     * @param email email of new user
+     * @param password password of new user
+     */
     public void createAccount(String email, String password) {
         //fail condition
         if (email.isEmpty() || password.isEmpty() || email == null || password == null) {
@@ -122,6 +128,9 @@ public class RegistrationScreen extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Creates a notification if the registration fails
+     */
     public void failedRegister() {
         new AlertDialog.Builder(RegistrationScreen.this).setTitle("Failed Registration")
                 .setMessage("Must be valid email and password. Hit OK to try again.")
@@ -134,6 +143,9 @@ public class RegistrationScreen extends AppCompatActivity {
                 }).show();
     }
 
+    /**
+     * Creates a notification if the registration is successful
+     */
     public void successRegister() {
 
         new AlertDialog.Builder(RegistrationScreen.this).setTitle("Successful Registration")

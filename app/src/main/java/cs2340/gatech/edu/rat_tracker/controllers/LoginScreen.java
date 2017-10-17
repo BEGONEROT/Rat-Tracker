@@ -10,30 +10,29 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import cs2340.gatech.edu.rat_tracker.R;
-import cs2340.gatech.edu.rat_tracker.model.Model;
-import cs2340.gatech.edu.rat_tracker.model.User;
 
-
+/**
+ * Screen for logging into the app
+ *
+ */
 public class LoginScreen extends AppCompatActivity {
 
     private static final String TAG = "LoginScreen";
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+    /**
+     * Uses Firebase to run login
+     * @param savedInstanceState current instance
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +92,12 @@ public class LoginScreen extends AppCompatActivity {
         });
     }
 
+    /**
+     * Attempts sign in with provided email and password
+     * TODO: 3 failures with same email should lock out user
+     * @param email email of user signing in
+     * @param password password of user signing in
+     */
     public void signIn(String email, String password) {
         //fail condition
         if (email.isEmpty() || password.isEmpty() || email == null || password == null) {
@@ -123,6 +128,9 @@ public class LoginScreen extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Creates a new notification of a failed login
+     */
     public void failedLogin() {
         new AlertDialog.Builder(LoginScreen.this).setTitle("Failed Login")
                 .setMessage("Must be valid email and password. Hit OK to try again.")

@@ -1,6 +1,9 @@
 package cs2340.gatech.edu.rat_tracker.model;
 
 /**
+ * Class for storing user data
+ * Used for the current user in Model
+ *
  * Created by dayynn on 9/28/17.
  */
 

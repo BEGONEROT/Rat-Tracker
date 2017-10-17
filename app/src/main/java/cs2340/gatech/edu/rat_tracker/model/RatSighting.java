@@ -1,11 +1,10 @@
 package cs2340.gatech.edu.rat_tracker.model;
 
-import android.os.Parcelable;
-import android.os.Parcel;
-
 import java.io.Serializable;
 
 /**
+ * Class for storing data about a rat sighting
+ *
  * Created by Dallas on 10/10/2017.
  */
 
@@ -80,29 +79,5 @@ public class RatSighting implements Serializable {
     public Double getLongitude() {
         return longitude;
     }
-
-//    @Override
-//    public int describeContents() {
-//        return 0;
-//    }
-
-//    @Override
-//    public void writeToParcel(Parcel out, int flags) {
-//        out.writeArray(data);
-//    }
-//
-//    public static final Parcelable.Creator<RatSighting> CREATOR = new Parcelable.Creator<RatSighting>() {
-//        public RatSighting createFromParcel(Parcel in) {
-//            return new RatSighting(in);
-//        }
-//
-//        public RatSighting[] newArray(int size) {
-//            return new RatSighting[size];
-//        }
-//    };
-//
-//    public RatSighting(Parcel in) {
-//        data = in.createStringArray();
-//    }
 
 }

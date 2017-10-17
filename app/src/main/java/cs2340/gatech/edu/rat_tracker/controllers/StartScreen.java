@@ -8,8 +8,15 @@ import android.view.View;
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
 
+/**
+ * The start screen of the app that appears on startup
+ */
 public class StartScreen extends AppCompatActivity {
 
+    /**
+     * Creates 2 buttons for the screen (login and register)
+     * @param savedInstanceState current instance
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
