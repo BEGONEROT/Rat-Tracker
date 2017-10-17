@@ -22,11 +22,13 @@ public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapte
 
 
     protected static class ViewHolder extends RecyclerView.ViewHolder {
-        protected TextView key;
+        protected TextView borough;
         protected TextView date;
+        protected TextView address;
         protected ViewHolder(View v) {
             super(v);
-            key = (TextView) v.findViewById(R.id.key);
+            borough = (TextView) v.findViewById(R.id.borough);
+            address = (TextView) v.findViewById(R.id.address);
             date = (TextView) v.findViewById(R.id.date);
         }
     }
@@ -46,7 +48,8 @@ public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         RatSighting rat = data.get(position);
-        holder.key.setText(rat.getKey().toString());
+        holder.borough.setText(rat.getBorough().toString());
+        holder.address.setText(rat.getIncidentAddress());
         holder.date.setText(rat.getDate());
     }
 
