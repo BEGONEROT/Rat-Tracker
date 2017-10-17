@@ -29,7 +29,7 @@ public class Model {
     }
 
     /*
-    	Unique Key          0
+    Unique Key          0
 	Date                1
 	Location Type       7
 	Incident Zip        8
@@ -126,6 +126,40 @@ public class Model {
      * @return all keys in the rats HashMap
      */
     public List<Integer> getKeyList() { return keyList; }
+
+
+//    /**
+//     * Generates a new unique key for a new rat sighting.
+//     * MAY NEED CODE TO GET IT FROM THE DATABASE INSTEAD OF USING THE LOCAL CACHE OF DATA
+//     * @return new key integer
+//     */
+//    public int getNextKey() {
+//        return keyList.(keyList.size() - 1) + 1;
+//    }
+
+    /**
+     * Updates local info and database info with a new RatSighting
+     * TODO: Add code for updating the database
+     * @param newRat the new RatSighting created that needs to be saved
+     * @return boolean whether adding the new RatSighting was successful or not
+     */
+    public boolean addNewSighting(RatSighting newRat) {
+        rats.put(newRat.getKey(), newRat);
+        keyList.add(newRat.getKey());
+        /*
+        ADD DATABASE CODE HERE
+         */
+        return true;
+    }
+
+    /**
+     * TODO: update the database with any new users or new rats
+     * This may require some new instance variables that temporarily store any new data
+     * @return whether updating was successful or not
+     */
+    private boolean updateDatabase() {
+        return false;
+    }
 
     /* /**
      * Sees if the user is an existing user
