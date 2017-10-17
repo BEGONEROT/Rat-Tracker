@@ -13,6 +13,7 @@ import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 import cs2340.gatech.edu.rat_tracker.R;
 
 /**
+ * TODO: Update JDocs @david
  * Created by dwarr on 10/11/2017.
  */
 

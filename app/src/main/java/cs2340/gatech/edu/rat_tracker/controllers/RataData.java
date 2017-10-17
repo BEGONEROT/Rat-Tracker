@@ -1,6 +1,5 @@
 package cs2340.gatech.edu.rat_tracker.controllers;
 
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,12 +14,19 @@ import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
 import  cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
+/**
+ * Screen for displaying all recent rat sightings
+ */
 public class RataData extends AppCompatActivity {
 
     private RecyclerView ratdataview;
     private SightingListAdapter adapter;
     private RecyclerView.LayoutManager layout;
 
+    /**
+     * Shows list as a recycler view. Clicking on a specific sighting pulls up a detail view
+     * @param savedInstanceState current instance
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +35,7 @@ public class RataData extends AppCompatActivity {
         ratdataview.setHasFixedSize(true);
         layout = new LinearLayoutManager(this);
         ratdataview.setLayoutManager(layout);
-       HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
+        HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
 
         adapter = new SightingListAdapter(sightings.values());
         ratdataview.setAdapter(adapter);
@@ -50,7 +56,7 @@ public class RataData extends AppCompatActivity {
         );
     }
 
-    /*
+    /**
      * This method refreshes the information in the ListView
      *
      * @param v the view
