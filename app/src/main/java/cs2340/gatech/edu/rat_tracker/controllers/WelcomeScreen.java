@@ -3,16 +3,9 @@ package cs2340.gatech.edu.rat_tracker.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.sql.DriverManager;
-
 import cs2340.gatech.edu.rat_tracker.R;
-import cs2340.gatech.edu.rat_tracker.model.DatabaseConnection;
 
 /**
  * Created by Aadarsh on 10/5/2017.
