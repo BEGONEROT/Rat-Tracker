@@ -55,7 +55,7 @@ public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         RatSighting rat = data.get(position);
-        holder.borough.setText(rat.getBorough().toString());
+        holder.borough.setText(rat.getBorough());
         holder.address.setText(rat.getIncidentAddress());
         holder.date.setText(rat.getDate());
     }

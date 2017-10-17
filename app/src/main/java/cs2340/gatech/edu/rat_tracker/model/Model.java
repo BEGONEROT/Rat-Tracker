@@ -48,9 +48,9 @@ public class Model {
     //constructor
     private Model() {
         //this.users = new ArrayList<User>();
+        //rats.put(1, new RatSighting(1,"Today","House","Zip","Address","City","Borosugh",12.234,1234.25));
         readRatData();
         //this.current_user = null;
-        //rats.put(1, new RatSighting(new String[] {"1","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
         //rats.put(2, new RatSighting(new String[] {"2","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
         //rats.put(3, new RatSighting(new String[] {"3","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
 
