@@ -20,7 +20,7 @@ public class Model {
     }
 
     /*
-    	Unique Key          0
+    Unique Key          0
 	Date                1
 	Location Type       7
 	Incident Zip        8
