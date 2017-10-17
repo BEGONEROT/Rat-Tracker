@@ -44,9 +44,9 @@ public class Model {
     private Model() {
         //this.users = new ArrayList<User>();
         //this.current_user = null;
-        rats.put(1, new RatSighting(new String[] {"1","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
-        rats.put(2, new RatSighting(new String[] {"2","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
-        rats.put(3, new RatSighting(new String[] {"3","Today","","","","","","House","Zip","Address","","","","","","","City","Borosugh","12.234","1234.25",""}));
+        rats.put(1, new RatSighting(new String[] {"1","Today","","","","","","House","Zip","Address","","","","","","","City","Borough","12.234","1234.25",""}));
+        rats.put(2, new RatSighting(new String[] {"2","Today","","","","","","House","Zip","Address","","","","","","","City","Borough","12.234","1234.25",""}));
+        rats.put(3, new RatSighting(new String[] {"3","Today","","","","","","House","Zip","Address","","","","","","","City","Borough","12.234","1234.25",""}));
         /*
         try {
             readRatData();
