@@ -64,6 +64,12 @@ public class RatSighting implements Serializable {
         return Double.parseDouble(data[data.length - 2]);
     }
 
+    public static final String[] resTypes =
+            {"3+ Family Mixed Use Building", "Commercial Building", "1-2 Family Dwelling", "Public Stairs","Vacant Lot", "Construction Site", "Hospital","Catch Basin/Sewer"};
+
+//    private static final String[] boroughs =[];
+
+
 //    @Override
 //    public int describeContents() {
 //        return 0;
@@ -86,6 +92,6 @@ public class RatSighting implements Serializable {
 //
 //    public RatSighting(Parcel in) {
 //        data = in.createStringArray();
-//    }
+
 
 }
