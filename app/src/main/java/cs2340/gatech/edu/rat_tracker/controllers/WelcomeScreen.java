@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import cs2340.gatech.edu.rat_tracker.R;
+import cs2340.gatech.edu.rat_tracker.model.Model;
 
 /**
  * Default screen after login
@@ -20,6 +21,7 @@ public class WelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
+        Model.getInstance();
         /*try {
             DriverManager.getConnection("jdbc:mariadb://localhost:3306/test");
         } catch (Exception e) {

@@ -3,9 +3,13 @@ package cs2340.gatech.edu.rat_tracker.controllers;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.View;
 import android.support.v7.widget.RecyclerView;
 import android.content.Intent;
+
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +26,7 @@ public class RataData extends AppCompatActivity {
     private RecyclerView ratdataview;
     private SightingListAdapter adapter;
     private RecyclerView.LayoutManager layout;
+    private final String TAG = "RatDataList: ";
 
     /**
      * Shows list as a recycler view. Clicking on a specific sighting pulls up a detail view
@@ -31,14 +36,18 @@ public class RataData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rata_data);
+        Model.getInstance();
         ratdataview = (RecyclerView) findViewById(R.id.my_recycler_view);
+
         ratdataview.setHasFixedSize(true);
+
+        HashMap<Integer, RatSighting> sightings = Model.getInstance().getAllRatData();
+        Log.w(TAG, sightings.toString());
+
+        adapter = new SightingListAdapter(this, sightings.values());
+        ratdataview.setAdapter(adapter);
         layout = new LinearLayoutManager(this);
         ratdataview.setLayoutManager(layout);
-        HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
-
-        adapter = new SightingListAdapter(sightings.values());
-        ratdataview.setAdapter(adapter);
         ratdataview.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, ratdataview ,new RecyclerItemClickListener.OnItemClickListener() {
                     private ArrayList<RatSighting> data;
