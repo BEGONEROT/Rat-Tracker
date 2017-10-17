@@ -29,7 +29,7 @@ public class RatDetails extends Activity {
      */
     private void loadData(RatSighting rat) {
         TextView key = (TextView) findViewById(R.id.data_key_title);
-        key.setText("#" + rat.getKey().toString());
+        key.setText("#" + rat.getKey());
         TextView date = (TextView) findViewById(R.id.date);
         date.setText(rat.getDate());
         TextView lType = (TextView) findViewById(R.id.location_type);

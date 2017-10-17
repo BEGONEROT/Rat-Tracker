@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import cs2340.gatech.edu.rat_tracker.R;
+import cs2340.gatech.edu.rat_tracker.model.Model;
 
 public class StartScreen extends AppCompatActivity {
 
