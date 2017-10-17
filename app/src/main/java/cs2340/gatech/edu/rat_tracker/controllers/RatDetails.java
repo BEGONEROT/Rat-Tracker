@@ -2,6 +2,7 @@ package cs2340.gatech.edu.rat_tracker.controllers;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import cs2340.gatech.edu.rat_tracker.R;
@@ -11,7 +12,7 @@ import cs2340.gatech.edu.rat_tracker.model.RatSighting;
  * Created by Dallas on 10/10/2017.
  */
 
-public class RatDetails extends Activity {
+public class RatDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
