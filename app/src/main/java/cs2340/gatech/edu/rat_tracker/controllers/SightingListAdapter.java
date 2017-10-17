@@ -1,5 +1,6 @@
 package cs2340.gatech.edu.rat_tracker.controllers;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ import cs2340.gatech.edu.rat_tracker.R;
 public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapter.ViewHolder> {
 
     private ArrayList<RatSighting> data;
-
+    private Context mContext;
 
     protected static class ViewHolder extends RecyclerView.ViewHolder {
         protected TextView borough;
@@ -34,8 +35,13 @@ public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapte
         }
     }
 
-    public SightingListAdapter(Collection<RatSighting> ratData) {
+    public SightingListAdapter(Context context, Collection<RatSighting> ratData) {
         data = new ArrayList<RatSighting>(ratData);
+        mContext = context;
+    }
+
+    public Context getContext() {
+        return mContext;
     }
 
     @Override
