@@ -16,9 +16,12 @@ public enum Borough implements Serializable {
 
     private String place;
 
-    public Borough(String place) {
-
+    Borough(String place) {
+        this.place = place;
     }
 
+    public String toString() {
+        return place;
+    }
 
 }
