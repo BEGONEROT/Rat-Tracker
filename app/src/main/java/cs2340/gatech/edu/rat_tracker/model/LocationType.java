@@ -55,7 +55,8 @@ public enum LocationType {
         this.description = description;
     }
 
-    public String description() {
+    @Override
+    public String toString() {
         return description;
     }
 }
