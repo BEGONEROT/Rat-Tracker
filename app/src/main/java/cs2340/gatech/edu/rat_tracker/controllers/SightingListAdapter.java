@@ -14,7 +14,7 @@ import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 import cs2340.gatech.edu.rat_tracker.R;
 
 /**
- * TODO: Update JDocs @david
+ *
  * Created by dwarr on 10/11/2017.
  */
 
@@ -23,10 +23,18 @@ public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapte
     private ArrayList<RatSighting> data;
     private Context mContext;
 
+    /**
+     * This will create the standard item view the recyclerview will use
+     */
     protected static class ViewHolder extends RecyclerView.ViewHolder {
         protected TextView borough;
         protected TextView date;
         protected TextView address;
+
+        /**
+         * Takes in a view
+         * @param v view
+         */
         protected ViewHolder(View v) {
             super(v);
             borough = (TextView) v.findViewById(R.id.borough);
@@ -35,11 +43,22 @@ public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapte
         }
     }
 
+    /**
+     * Makes the collection of Rat Sightings into an adapter
+     *
+     * @param context the current activity
+     * @param ratData collection of rat data values
+     */
     public SightingListAdapter(Context context, Collection<RatSighting> ratData) {
         data = new ArrayList<RatSighting>(ratData);
         mContext = context;
     }
 
+    /**
+     * Getter for context
+     *
+     * @return context
+     */
     public Context getContext() {
         return mContext;
     }
