@@ -1,5 +1,6 @@
 package cs2340.gatech.edu.rat_tracker.controllers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -60,17 +61,18 @@ public class ReportSightingScreen extends AppCompatActivity {
                 DateFormat format = new SimpleDateFormat("M/d/yyyy HH:mm");
                 Date date = new Date();
                 String dateTime = format.format(date);
-
                 String newCity = city.getText().toString();
                 String newBorough = borough.getSelectedItem().toString();
-                String newLocation = locationType.getSelectedItem()
+                String newLocation = locationType.getSelectedItem().toString();
                 String newAddress = address.getText().toString();
                 double newLongitude = Double.parseDouble(longitude.getText().toString());
                 double newLatitide = Double.parseDouble(latitude.getText().toString());
                 String newZip = zip.getText().toString();
 
                 updateDatabase("ADDRESS", newBorough, newCity, dateTime, newAddress, newZip,
-                        newLatitide, newLongitude, );
+                        newLatitide, newLongitude, newLocation);
+                Intent intent = new Intent(ReportSightingScreen.this, WelcomeScreen.class);
+                startActivity(intent);
 
 
                 //TESTING
@@ -84,7 +86,7 @@ public class ReportSightingScreen extends AppCompatActivity {
 
     private void updateDatabase(String addressType, String borough, String city, String created_date, String address, String zip, double latitude, double longitude, String location_type) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("RatSightingsTemp").push();
+        DatabaseReference myRef = database.getReference("RatSightings").push();
         //use this to set data of each value where 'hello' is the key and 'world' is the value
         //myRef.child("hello").setValue("world");
         myRef.child("Address Type").setValue(addressType);
