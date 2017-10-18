@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Borough;
+import cs2340.gatech.edu.rat_tracker.model.LocationType;
 import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
 /**
@@ -42,7 +43,7 @@ public class ReportSightingScreen extends AppCompatActivity {
         borough.setAdapter(bAdapter);
 
         Spinner locationType = (Spinner) findViewById(R.id.residenceSpinner);
-        ArrayAdapter<String> lAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item);
+        ArrayAdapter<String> lAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, LocationType.values());
         locationType.setAdapter(lAdapter);
 
         EditText address = (EditText) findViewById(R.id.addressField);
@@ -62,6 +63,7 @@ public class ReportSightingScreen extends AppCompatActivity {
 
                 String newCity = city.getText().toString();
                 String newBorough = borough.getSelectedItem().toString();
+                String newLocation = locationType.getSelectedItem()
                 String newAddress = address.getText().toString();
                 double newLongitude = Double.parseDouble(longitude.getText().toString());
                 double newLatitide = Double.parseDouble(latitude.getText().toString());
