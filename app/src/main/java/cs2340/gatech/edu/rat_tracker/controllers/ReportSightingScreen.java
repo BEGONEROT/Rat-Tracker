@@ -86,7 +86,7 @@ public class ReportSightingScreen extends AppCompatActivity {
 
     private void updateDatabase(String addressType, String borough, String city, String created_date, String address, String zip, double latitude, double longitude, String location_type) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("RatSightings").push();
+        DatabaseReference myRef = database.getReference("RatSightingsTemp").push();
         //use this to set data of each value where 'hello' is the key and 'world' is the value
         //myRef.child("hello").setValue("world");
         myRef.child("Address Type").setValue(addressType);
