@@ -71,7 +71,7 @@ public class Model {
         database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("RatSightings");
 
-        myRef.orderByChild("Created Date").limitToFirst(50).addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.orderByChild("Created Date").limitToFirst(10).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.w(TAG, "Snapshot: " + dataSnapshot.toString());
