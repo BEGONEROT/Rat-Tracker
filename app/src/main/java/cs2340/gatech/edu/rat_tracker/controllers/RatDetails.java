@@ -40,7 +40,7 @@ public class RatDetails extends AppCompatActivity {
         TextView date = (TextView) findViewById(R.id.date);
         date.setText(rat.getDate());
         TextView lType = (TextView) findViewById(R.id.location_type);
-        lType.setText(rat.getLocationType());
+        lType.setText(rat.getLocationType().toString());
         TextView address = (TextView) findViewById(R.id.address);
         address.setText(rat.getIncidentAddress());
         TextView city = (TextView) findViewById(R.id.city);
@@ -48,7 +48,7 @@ public class RatDetails extends AppCompatActivity {
         TextView zip = (TextView) findViewById(R.id.zip_code);
         zip.setText(rat.getIncidentZip());
         TextView borough = (TextView) findViewById(R.id.borough);
-        borough.setText(rat.getBorough());
+        borough.setText(rat.getBorough().toString());
         TextView coordinates = (TextView) findViewById(R.id.coordinates);
         coordinates.setText("X:" + rat.getLatitude() + ", Y:" + rat.getLongitude());
     }

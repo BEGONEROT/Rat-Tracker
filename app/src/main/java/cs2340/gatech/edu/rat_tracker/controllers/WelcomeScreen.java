@@ -21,7 +21,7 @@ public class WelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
-        Model.getInstance();
+        Model.getInstance().readRatData();
         /*try {
             DriverManager.getConnection("jdbc:mariadb://localhost:3306/test");
         } catch (Exception e) {
