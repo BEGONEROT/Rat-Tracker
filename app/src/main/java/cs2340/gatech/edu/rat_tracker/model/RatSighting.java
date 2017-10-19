@@ -10,13 +10,13 @@ import java.io.Serializable;
 
 public class RatSighting implements Serializable {
 
-    private int key;
+    private String key;
     private String date;
-    private String locationType;
+    private LocationType locationType;
     private String zip;
     private String address;
     private String city;
-    private String borough;
+    private Borough borough;
     private double latitude;
     private double longitude;
     //private String[] data;
@@ -32,7 +32,7 @@ public class RatSighting implements Serializable {
 	Longitude           len - 2
 	*/
 
-    public RatSighting(int key, String date, String locationType, String zip, String address, String city, String borough, double latitude, double longitude) {
+    public RatSighting(String key, String date, LocationType locationType, String zip, String address, String city, Borough borough, double latitude, double longitude) {
         this.key = key;
         this.date = date;
         this.locationType = locationType;
@@ -44,7 +44,7 @@ public class RatSighting implements Serializable {
         this.longitude = longitude;
     }
 
-    public Integer getKey() {
+    public String getKey() {
         return key;
     }
 
@@ -52,7 +52,7 @@ public class RatSighting implements Serializable {
         return date;
     }
 
-    public String getLocationType() {
+    public LocationType getLocationType() {
         return locationType;
     }
 
@@ -68,7 +68,7 @@ public class RatSighting implements Serializable {
         return city;
     }
 
-    public String getBorough() {
+    public Borough getBorough() {
         return borough;
     }
 
