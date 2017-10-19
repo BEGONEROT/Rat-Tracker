@@ -39,10 +39,10 @@ public class RataData extends AppCompatActivity {
 
         ratdataview.setHasFixedSize(true);
 
-        HashMap<Integer, RatSighting> sightings = Model.getInstance().getAllRatData();
+        ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
         Log.w(TAG, sightings.toString());
 
-        adapter = new SightingListAdapter(this, sightings.values());
+        adapter = new SightingListAdapter(this, sightings);
         ratdataview.setAdapter(adapter);
         layout = new LinearLayoutManager(this);
         ratdataview.setLayoutManager(layout);
