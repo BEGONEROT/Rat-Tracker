@@ -5,8 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
+import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
 /**
  * Default screen after login
@@ -58,6 +62,15 @@ public class WelcomeScreen extends AppCompatActivity {
      */
     public void onViewStatsPressed(View v) {
         Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
+        startActivity(logOutPage);
+    }
+
+    /**
+     * Changes the activity to start screen when logout is pressed
+     * @param v Current view
+     */
+    public void onViewMapPressed(View v) {
+        Intent logOutPage = new Intent(WelcomeScreen.this, MapScreen.class);
         startActivity(logOutPage);
     }
 
