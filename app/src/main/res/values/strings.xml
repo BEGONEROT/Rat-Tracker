@@ -3,4 +3,5 @@
     <string name="login_failed_title">Login Error</string>
     <string name="login_failed_message">Unable to login, please try again.</string>
     <string name="ok">OK</string>
+    <string name="google_maps_key">AIzaSyCchFElhbGTup1-KKSiZ68uQwWs77Vu73k</string>
 </resources>
