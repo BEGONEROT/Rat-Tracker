@@ -18,10 +18,10 @@
         </activity>
         <activity
             android:name=".controllers.LoginScreen"
-            android:parentActivityName=".controllers.WelcomeScreen" />
+            android:parentActivityName=".controllers.StartScreen" />
         <activity
             android:name=".controllers.RegistrationScreen"
-            android:parentActivityName=".controllers.WelcomeScreen" />
+            android:parentActivityName=".controllers.StartScreen" />
         <activity
             android:name=".controllers.RataData"
             android:parentActivityName=".controllers.ViewRatsScreen"
@@ -31,6 +31,8 @@
             android:parentActivityName=".controllers.WelcomeScreen"/>
         <activity android:name=".controllers.RatDetails"
             android:parentActivityName=".controllers.RataData"/>
+        <activity android:name=".controllers.ReportSightingScreen"
+            android:parentActivityName=".controllers.WelcomeScreen"/>
     </application>
 
 </manifest>

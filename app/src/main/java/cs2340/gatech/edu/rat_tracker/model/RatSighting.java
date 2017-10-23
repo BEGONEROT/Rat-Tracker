@@ -1,17 +1,25 @@
 package cs2340.gatech.edu.rat_tracker.model;
 
-import android.os.Parcelable;
-import android.os.Parcel;
-
 import java.io.Serializable;
 
 /**
+ * Class for storing data about a rat sighting
+ *
  * Created by Dallas on 10/10/2017.
  */
 
 public class RatSighting implements Serializable {
 
-    private String[] data;
+    private String key;
+    private String date;
+    private LocationType locationType;
+    private String zip;
+    private String address;
+    private String city;
+    private Borough borough;
+    private double latitude;
+    private double longitude;
+    //private String[] data;
     /*
 	Unique Key          0
 	Date                1
@@ -24,46 +32,55 @@ public class RatSighting implements Serializable {
 	Longitude           len - 2
 	*/
 
-    public RatSighting(String[] data) {
-        this.data = data;
+    public RatSighting(String key, String date, LocationType locationType, String zip, String address, String city, Borough borough, double latitude, double longitude) {
+        this.key = key;
+        this.date = date;
+        this.locationType = locationType;
+        this.zip = zip;
+        this.address = address;
+        this.city = city;
+        this.borough = borough;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
-    public Integer getKey() {
-        return Integer.parseInt(data[0]);
+    public String getKey() {
+        return key;
     }
 
     public String getDate() {
-        return data[1];
+        return date;
     }
 
-    public String getLocationType() {
-        return data[7];
+    public LocationType getLocationType() {
+        return locationType;
     }
 
     public String getIncidentZip() {
-        return data[8];
+        return zip;
     }
 
     public String getIncidentAddress() {
-        return data[9];
+        return address;
     }
 
     public String getCity() {
-        return data[16];
+        return city;
     }
 
-    public String getBorough() {
-        return data[17];
+    public Borough getBorough() {
+        return borough;
     }
 
     public Double getLatitude() {
-        return Double.parseDouble(data[data.length - 3]);
+        return latitude;
     }
 
     public Double getLongitude() {
-        return Double.parseDouble(data[data.length - 2]);
+        return longitude;
     }
 
+<<<<<<< HEAD
     public static final String[] resTypes =
             {"3+ Family Mixed Use Building", "Commercial Building", "1-2 Family Dwelling", "Public Stairs","Vacant Lot", "Construction Site", "Hospital","Catch Basin/Sewer"};
 
@@ -94,4 +111,6 @@ public class RatSighting implements Serializable {
 //        data = in.createStringArray();
 
 
+=======
+>>>>>>> origin/master
 }

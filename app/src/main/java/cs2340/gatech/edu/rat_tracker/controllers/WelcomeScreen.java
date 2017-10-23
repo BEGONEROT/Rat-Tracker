@@ -3,18 +3,16 @@ package cs2340.gatech.edu.rat_tracker.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.sql.DriverManager;
-
 import cs2340.gatech.edu.rat_tracker.R;
-import cs2340.gatech.edu.rat_tracker.model.DatabaseConnection;
+import cs2340.gatech.edu.rat_tracker.model.Model;
 
 /**
+ * Default screen after login
+ * User can view rat reports, view the map, logout, change settings, create a new rat sighting,
+ * and view general stats
+ *
  * Created by Aadarsh on 10/5/2017.
  */
 
@@ -23,6 +21,7 @@ public class WelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
+        Model.getInstance().readRatData();
         /*try {
             DriverManager.getConnection("jdbc:mariadb://localhost:3306/test");
         } catch (Exception e) {
@@ -40,7 +39,7 @@ public class WelcomeScreen extends AppCompatActivity {
      * @param v Current view
      */
     public void onNewRatPressed(View v) {
-        Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
+        Intent logOutPage = new Intent(WelcomeScreen.this, ReportSightingScreen.class);
         startActivity(logOutPage);
     }
 
