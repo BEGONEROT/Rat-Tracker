@@ -18,6 +18,13 @@
         android:text="View Rats" />
 
     <Button
+        android:id="@+id/viewMap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onViewMapPressed"
+        android:text="VIEW MAP" />
+
+    <Button
         android:id="@+id/viewStats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

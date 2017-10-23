@@ -119,7 +119,7 @@ public class LoginScreen extends AppCompatActivity {
                         } else {
                             //go to main screen of app
                             Log.w(TAG, FirebaseAuth.getInstance().getCurrentUser().getEmail());
-                            Intent loginPage = new Intent(LoginScreen.this, MapScreen.class);
+                            Intent loginPage = new Intent(LoginScreen.this, WelcomeScreen.class);
                             startActivity(loginPage);
                         }
 
