@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -26,6 +27,10 @@ public class WelcomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
         Model.getInstance().readRatData();
+
+        webView = (WebView) findViewById(R.id.webView);
+        webView.loadUrl("file:///android_asset/ratgif.html");
+
         /*try {
             DriverManager.getConnection("jdbc:mariadb://localhost:3306/test");
         } catch (Exception e) {
@@ -37,6 +42,8 @@ public class WelcomeScreen extends AppCompatActivity {
 
         myRef.setValue("Hello, World!");*/
     }
+
+    WebView webView;
 
     /**
      * Changes the activity to start screen when logout is pressed
