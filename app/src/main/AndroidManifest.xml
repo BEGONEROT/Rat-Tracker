@@ -33,6 +33,8 @@
             android:parentActivityName=".controllers.RataData"/>
         <activity android:name=".controllers.ReportSightingScreen"
             android:parentActivityName=".controllers.WelcomeScreen"/>
+        <activity android:name=".controllers.StatsScreen"
+            android:parentActivityName=".controllers.WelcomeScreen"/>
 
         <meta-data
             android:name="com.google.android.gms.version"

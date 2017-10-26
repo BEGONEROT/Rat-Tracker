@@ -61,7 +61,7 @@ public class WelcomeScreen extends AppCompatActivity {
      * @param v Current view
      */
     public void onViewStatsPressed(View v) {
-        Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
+        Intent logOutPage = new Intent(WelcomeScreen.this, StatsScreen.class);
         startActivity(logOutPage);
     }
 
