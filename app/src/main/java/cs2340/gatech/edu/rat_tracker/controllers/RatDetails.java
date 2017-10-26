@@ -25,7 +25,7 @@ public class RatDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rat_details);
         final RatSighting currentRat = (RatSighting) this.getIntent().getSerializableExtra("SIGHTING");
-        System.out.println(currentRat.getDate());
+        System.out.println(currentRat.getStringDate());
         loadData(currentRat);
     }
 
@@ -38,7 +38,7 @@ public class RatDetails extends AppCompatActivity {
         TextView key = (TextView) findViewById(R.id.data_key_title);
         key.setText("#" + rat.getKey());
         TextView date = (TextView) findViewById(R.id.date);
-        date.setText(rat.getDate());
+        date.setText(rat.getStringDate());
         TextView lType = (TextView) findViewById(R.id.location_type);
         lType.setText(rat.getLocationType().toString());
         TextView address = (TextView) findViewById(R.id.address);

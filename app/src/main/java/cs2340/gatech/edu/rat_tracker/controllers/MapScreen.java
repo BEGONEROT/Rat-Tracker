@@ -33,6 +33,8 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
 
 import static android.app.PendingIntent.getActivity;
 
@@ -49,6 +51,12 @@ public class MapScreen extends AppCompatActivity
         setContentView(R.layout.activity_map_screen);
         Model.getInstance();
         ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
+        sightings.sort(new Comparator<RatSighting>() {
+            @Override
+            public int compare(RatSighting rat1, RatSighting rat2) {
+                return rat1.getDate().compareTo(rat2.getDate());
+            }
+        });
 
 
         // Get the SupportMapFragment and request notification
@@ -93,7 +101,7 @@ public class MapScreen extends AppCompatActivity
                 sighting = sightings.get(i);
                 point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
                 googleMap.addMarker(new MarkerOptions().position(point)
-                        .title(sighting.getDate()));
+                        .title(sighting.getStringDate()));
 
             } catch (Exception e) {
                 System.out.println("Oops");
