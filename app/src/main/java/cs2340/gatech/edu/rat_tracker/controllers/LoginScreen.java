@@ -70,6 +70,11 @@ public class LoginScreen extends AppCompatActivity implements
 
         //super.onCreate(savedInstanceState);
 
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
 
         //super.onCreate(savedInstanceState);
         //firebase init
@@ -89,10 +94,7 @@ public class LoginScreen extends AppCompatActivity implements
             }
         };
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
+
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this /* FragmentActivity */,  this  /* OnConnectionFailedListener */)
@@ -102,6 +104,7 @@ public class LoginScreen extends AppCompatActivity implements
 
         mCallbackManager = CallbackManager.Factory.create();
         LoginButton fbloginButton = (LoginButton) findViewById(R.id.fb_login_button);
+        //LoginButton googleloginButton = (LoginButton) findViewById(R.id.google_login_button);
         fbloginButton.setReadPermissions("email", "public_profile");
         fbloginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
