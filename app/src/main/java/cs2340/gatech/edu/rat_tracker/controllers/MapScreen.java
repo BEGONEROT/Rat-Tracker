@@ -17,10 +17,6 @@ import cs2340.gatech.edu.rat_tracker.model.RatSighting;
  */
 
 
-
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -29,6 +25,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
 
 /**
  * An activity that displays a Google map with a marker (pin) to indicate a particular location.
@@ -43,6 +41,12 @@ public class MapScreen extends AppCompatActivity
         setContentView(R.layout.activity_map_screen);
         Model.getInstance();
         ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
+        sightings.sort(new Comparator<RatSighting>() {
+            @Override
+            public int compare(RatSighting rat1, RatSighting rat2) {
+                return rat1.getDate().compareTo(rat2.getDate());
+            }
+        });
         // Get the SupportMapFragment and request notification
         // when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -72,7 +76,7 @@ public class MapScreen extends AppCompatActivity
                 RatSighting sighting = sightings.get(i);
                 LatLng point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
                 googleMap.addMarker(new MarkerOptions().position(point)
-                        .title(sighting.getDate()));
+                        .title(sighting.getStringDate()));
 
             } catch (Exception e) {
                 System.out.println("Oops");
