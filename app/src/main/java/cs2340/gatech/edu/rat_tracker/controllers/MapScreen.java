@@ -20,6 +20,8 @@ import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -28,8 +30,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 import java.util.ArrayList;
+
+import static android.app.PendingIntent.getActivity;
 
 /**
  * An activity that displays a Google map with a marker (pin) to indicate a particular location.
@@ -44,6 +49,8 @@ public class MapScreen extends AppCompatActivity
         setContentView(R.layout.activity_map_screen);
         Model.getInstance();
         ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
+
+
         // Get the SupportMapFragment and request notification
         // when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -92,6 +99,25 @@ public class MapScreen extends AppCompatActivity
                 System.out.println("Oops");
             }
         }
+
+        RangeSeekBar<Double> seekBar = new RangeSeekBar<Double>(this);
+        seekBar.setRangeValues(0.00, 99.99);
+        seekBar.setSelectedMinValue(20.0);
+        seekBar.setSelectedMaxValue(88.0);
+
+        LinearLayout layout = (LinearLayout) findViewById(R.id.seekbar_placeholder);
+        layout.addView(seekBar);
+
+        seekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Double>() {
+            @Override
+            public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Double minValue, Double maxValue) {
+                //Now you have the minValue and maxValue of your RangeSeekbar
+                Toast.makeText(getApplicationContext(), minValue + "-" + maxValue, Toast.LENGTH_LONG).show();
+            }
+        });
+
+// Get noticed while dragging
+        seekBar.setNotifyWhileDragging(true);
 
     }
 }
