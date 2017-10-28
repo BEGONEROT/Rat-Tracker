@@ -13,6 +13,12 @@ import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
 import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.GoogleApiClient;
+
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+
 /**
  * Default screen after login
  * User can view rat reports, view the map, logout, change settings, create a new rat sighting,
@@ -21,7 +27,7 @@ import cs2340.gatech.edu.rat_tracker.model.RatSighting;
  * Created by Aadarsh on 10/5/2017.
  */
 
-public class WelcomeScreen extends AppCompatActivity {
+public class WelcomeScreen extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,5 +104,6 @@ public class WelcomeScreen extends AppCompatActivity {
         Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
         startActivity(logOutPage);
     }
+
 }
 
