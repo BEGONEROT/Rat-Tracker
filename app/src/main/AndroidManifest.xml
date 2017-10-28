@@ -35,6 +35,8 @@
             android:parentActivityName=".controllers.WelcomeScreen"/>
         <activity android:name=".controllers.StatsScreen"
             android:parentActivityName=".controllers.WelcomeScreen"/>
+        <activity android:name=".controllers.MapScreen"
+            android:parentActivityName=".controllers.WelcomeScreen" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -47,15 +49,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".controllers.MapScreen"
-            android:label="Sighting">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
