@@ -21,6 +21,8 @@ import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -28,6 +30,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
@@ -35,6 +38,7 @@ import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 
 import static android.app.PendingIntent.getActivity;
 
@@ -86,6 +90,7 @@ public class MapScreen extends AppCompatActivity
                         this, R.raw.style_json));
         //LatLng sydney = new LatLng(-33.852, 151.211);
         ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
+        HashMap<RatSighting,Marker> hashMapMarker = new HashMap<>();
 
         RatSighting sighting = sightings.get(4);
         LatLng point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
@@ -93,34 +98,92 @@ public class MapScreen extends AppCompatActivity
         googleMap.addMarker(new MarkerOptions().position(point)
                 .title("Marker in Sydney"));
         // System.out.println(sighting);
-
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 10.0f));
+        SeekBar simpleSeekBar=(SeekBar) findViewById(R.id.bar);
+        LatLng finalPoint = point;
+        simpleSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            public void onProgressChanged(    SeekBar seekBar,    int progress,    boolean fromUser){
+                if (fromUser) {
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(finalPoint, progress));
+                }
+            }
+            public void onStartTrackingTouch(    SeekBar seekBar){
+            }
+            public void onStopTrackingTouch(    SeekBar seekBar){
+//                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(finalPoint, progress);
+            }});
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 10.0f));
         System.out.println(sightings.toString());
         for (int i = 0; i < sightings.size(); i++) {
             try {
                 sighting = sightings.get(i);
                 point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
-                googleMap.addMarker(new MarkerOptions().position(point)
+                Marker marker = googleMap.addMarker(new MarkerOptions().position(point)
                         .title(sighting.getStringDate()));
+                hashMapMarker.put(sighting,marker);
 
             } catch (Exception e) {
                 System.out.println("Oops");
             }
         }
 
-        RangeSeekBar<Double> seekBar = new RangeSeekBar<Double>(this);
-        seekBar.setRangeValues(0.00, 99.99);
-        seekBar.setSelectedMinValue(20.0);
-        seekBar.setSelectedMaxValue(88.0);
+        RangeSeekBar<Integer> seekBar = new RangeSeekBar<Integer>(this);
+        seekBar.setRangeValues(0, sightings.size());
+
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.seekbar_placeholder);
         layout.addView(seekBar);
+        int currMin = 0;
+        int currMax = sightings.size();
 
-        seekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Double>() {
+
+        seekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>() {
+
             @Override
-            public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Double minValue, Double maxValue) {
+            public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
+                if (currMin > minValue) {
+                    deleteMap(0, sightings.size());
+                    addMap(minValue, currMin);
+                } else if (currMax < maxValue) {
+                    deleteMap(0, sightings.size());
+                    addMap(currMax, maxValue);
+                } else if (currMin < minValue) {
+                    deleteMap(0, sightings.size());
+                    addMap(currMin, minValue); //
+                } else if (currMax > maxValue) {
+                    deleteMap(0, sightings.size());
+                    addMap(maxValue, currMax);
+                }
                 //Now you have the minValue and maxValue of your RangeSeekbar
-                Toast.makeText(getApplicationContext(), minValue + "-" + maxValue, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), minValue + "-" + maxValue, Toast.LENGTH_LONG).show();
+            }
+
+            public void addMap(int start, int stop) {
+                for (int i = start; i < stop; i++) {
+                    try {
+                        RatSighting sighting = sightings.get(i);
+                        LatLng point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
+                        Marker marker = googleMap.addMarker(new MarkerOptions().position(point)
+                                .title(sighting.getStringDate()));
+                        hashMapMarker.put(sighting,marker);
+
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            }
+
+            public void deleteMap(int start, int stop) {
+                for (int i = start; i < stop; i++) {
+                    try {
+                        RatSighting sighting = sightings.get(i);
+                        Marker marker = hashMapMarker.get(sighting);
+                        marker.remove();
+                        hashMapMarker.remove(sighting);
+                    } catch (Exception e) {
+                        System.out.println("Oops");
+                    }
+                }
             }
         });
 
