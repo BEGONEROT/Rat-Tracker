@@ -30,6 +30,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -49,6 +50,9 @@ import static android.app.PendingIntent.getActivity;
 public class MapScreen extends AppCompatActivity
         implements OnMapReadyCallback,
         GoogleMap.OnInfoWindowClickListener {
+
+    private int currMin = 0;
+    private int currMax = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +91,9 @@ public class MapScreen extends AppCompatActivity
         // and move the map's camera to the same location.
         Model.getInstance();
         googleMap.setOnInfoWindowClickListener(this);
-
+        /*UiSettings uiSettings = googleMap.getUiSettings();
+        uiSettings.setZoomControlsEnabled(true);
+        */
         boolean success = googleMap.setMapStyle(
                 MapStyleOptions.loadRawResourceStyle(
                         this, R.raw.style_json));
@@ -99,11 +105,9 @@ public class MapScreen extends AppCompatActivity
         LatLng point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
 
         //googleMap.addMarker(new MarkerOptions().position(point)
-<<<<<<< HEAD
+
                // .title(sighting));
-=======
                 //.title("Marker in Sydney"));
->>>>>>> davon
         // System.out.println(sighting);
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 10.0f));
         SeekBar simpleSeekBar=(SeekBar) findViewById(R.id.bar);
@@ -125,17 +129,12 @@ public class MapScreen extends AppCompatActivity
             try {
                 sighting = sightings.get(i);
                 point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
-<<<<<<< HEAD
                 MarkerOptions markeroptions = new MarkerOptions().position(point)
-                        .title(sighting.getDate())
+                        .title(sighting.getDate().toString())
                         .snippet(sighting.getKey());
                 Marker marker = googleMap.addMarker(markeroptions);
                 marker.setTag(sighting);
-=======
-                Marker marker = googleMap.addMarker(new MarkerOptions().position(point)
-                        .title(sighting.getStringDate()));
                 hashMapMarker.put(sighting,marker);
->>>>>>> davon
 
             } catch (Exception e) {
                 System.out.println("Oops");
@@ -148,25 +147,17 @@ public class MapScreen extends AppCompatActivity
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.seekbar_placeholder);
         layout.addView(seekBar);
-        int currMin = 0;
-        int currMax = sightings.size();
 
-        Intent i = new Intent(getBaseContext(), MapScreen.class);
-        i.putExtra("min", currMin);
-        i.putExtra("max", currMax);
+        currMax = sightings.size();
+
+
         seekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>() {
             @Override
             public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
-                try {
-                    int currMin = getIntent().getExtras().getInt("min");
-                    int currMax = getIntent().getExtras().getInt("max");
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-
-                }
                 if (currMin > minValue) {
                     //deleteMap(0, sightings.size());
                     addMap(minValue, currMin);
+
                     System.out.println(currMin + "" + minValue);
                 } else if (currMax < maxValue) {
                     //deleteMap(0, sightings.size());
@@ -179,12 +170,14 @@ public class MapScreen extends AppCompatActivity
                     deleteMap(maxValue, currMax);
                     //addMap(maxValue, currMax);
                 }
+                currMin = minValue;
+                currMax = maxValue;
                 //Now you have the minValue and maxValue of your RangeSeekbar
                 //Toast.makeText(getApplicationContext(), minValue + "-" + maxValue, Toast.LENGTH_LONG).show();
                 //Intent i = new Intent(getBaseContext(), MapScreen.class);
-                i.putExtra("min", minValue);
-                i.putExtra("max", maxValue);
+
                 //i.putExtra("max", maxValue);
+                
 
             }
 
@@ -197,6 +190,7 @@ public class MapScreen extends AppCompatActivity
                         Marker marker = googleMap.addMarker(new MarkerOptions().position(point)
                                 .title(sighting.getStringDate()));
                         hashMapMarker.put(sighting,marker);
+
 
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
@@ -223,6 +217,10 @@ public class MapScreen extends AppCompatActivity
 
     }
 
+    /**
+     * Uses the data in the marker's tag to intent over to the detail view for that sighting
+     * @param marker Marker that was clicked
+     */
     @Override
     public void onInfoWindowClick(Marker marker) {
         RatSighting sighting = (RatSighting) marker.getTag();
