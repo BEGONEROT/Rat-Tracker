@@ -18,14 +18,11 @@ import cs2340.gatech.edu.rat_tracker.model.RatSighting;
  */
 
 
-
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -69,6 +66,8 @@ public class MapScreen extends AppCompatActivity
         // and move the map's camera to the same location.
         Model.getInstance();
         googleMap.setOnInfoWindowClickListener(this);
+        UiSettings uiSettings = googleMap.getUiSettings();
+        uiSettings.setZoomControlsEnabled(true);
 
         boolean success = googleMap.setMapStyle(
                 MapStyleOptions.loadRawResourceStyle(
@@ -102,6 +101,10 @@ public class MapScreen extends AppCompatActivity
 
     }
 
+    /**
+     * Uses the data in the marker's tag to intent over to the detail view for that sighting
+     * @param marker Marker that was clicked
+     */
     @Override
     public void onInfoWindowClick(Marker marker) {
         RatSighting sighting = (RatSighting) marker.getTag();
