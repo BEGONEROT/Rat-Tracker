@@ -189,7 +189,7 @@ public class Model {
         myRef.child("Latitude").setValue(latitude);
         myRef.child("Longitude").setValue(longitude);
         myRef.child("Location Type").setValue(location_type);
-        rats.add(new RatSighting("123", created_date, location_type, zip, address, city, Borough.valueOf(borough), latitude, longitude), 0);
+        rats.add(0, new RatSighting("123", created_date, LocationType.fromString(location_type), zip, address, city, Borough.valueOf(borough), latitude, longitude));
         readRatData();
     }
 
