@@ -93,7 +93,6 @@ public class RatSighting implements Serializable {
     }
 
 
-<<<<<<< HEAD
     public static final String[] resTypes =
             {"3+ Family Mixed Use Building", "Commercial Building", "1-2 Family Dwelling", "Public Stairs","Vacant Lot", "Construction Site", "Hospital","Catch Basin/Sewer"};
 
@@ -123,7 +122,6 @@ public class RatSighting implements Serializable {
 //    public RatSighting(Parcel in) {
 //        data = in.createStringArray();
 
-=======
->>>>>>> davon
+
 
 }

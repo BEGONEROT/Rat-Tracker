@@ -26,7 +26,6 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
->>>>>>> 1beb6311b59e53038ab8d70c54214bf924fae07b
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -51,6 +50,9 @@ import static android.app.PendingIntent.getActivity;
 public class MapScreen extends AppCompatActivity
         implements OnMapReadyCallback,
         GoogleMap.OnInfoWindowClickListener {
+
+    private int currMin = 0;
+    private int currMax = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +91,9 @@ public class MapScreen extends AppCompatActivity
         // and move the map's camera to the same location.
         Model.getInstance();
         googleMap.setOnInfoWindowClickListener(this);
-        UiSettings uiSettings = googleMap.getUiSettings();
+        /*UiSettings uiSettings = googleMap.getUiSettings();
         uiSettings.setZoomControlsEnabled(true);
-
+        */
         boolean success = googleMap.setMapStyle(
                 MapStyleOptions.loadRawResourceStyle(
                         this, R.raw.style_json));
@@ -128,7 +130,7 @@ public class MapScreen extends AppCompatActivity
                 sighting = sightings.get(i);
                 point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
                 MarkerOptions markeroptions = new MarkerOptions().position(point)
-                        .title(sighting.getDate())
+                        .title(sighting.getDate().toString())
                         .snippet(sighting.getKey());
                 Marker marker = googleMap.addMarker(markeroptions);
                 marker.setTag(sighting);
@@ -145,25 +147,17 @@ public class MapScreen extends AppCompatActivity
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.seekbar_placeholder);
         layout.addView(seekBar);
-        int currMin = 0;
-        int currMax = sightings.size();
 
-        Intent i = new Intent(getBaseContext(), MapScreen.class);
-        i.putExtra("min", currMin);
-        i.putExtra("max", currMax);
+        currMax = sightings.size();
+
+
         seekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>() {
             @Override
             public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
-                try {
-                    int currMin = getIntent().getExtras().getInt("min");
-                    int currMax = getIntent().getExtras().getInt("max");
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-
-                }
                 if (currMin > minValue) {
                     //deleteMap(0, sightings.size());
                     addMap(minValue, currMin);
+
                     System.out.println(currMin + "" + minValue);
                 } else if (currMax < maxValue) {
                     //deleteMap(0, sightings.size());
@@ -176,12 +170,14 @@ public class MapScreen extends AppCompatActivity
                     deleteMap(maxValue, currMax);
                     //addMap(maxValue, currMax);
                 }
+                currMin = minValue;
+                currMax = maxValue;
                 //Now you have the minValue and maxValue of your RangeSeekbar
                 //Toast.makeText(getApplicationContext(), minValue + "-" + maxValue, Toast.LENGTH_LONG).show();
                 //Intent i = new Intent(getBaseContext(), MapScreen.class);
-                i.putExtra("min", minValue);
-                i.putExtra("max", maxValue);
+
                 //i.putExtra("max", maxValue);
+                
 
             }
 
@@ -194,6 +190,7 @@ public class MapScreen extends AppCompatActivity
                         Marker marker = googleMap.addMarker(new MarkerOptions().position(point)
                                 .title(sighting.getStringDate()));
                         hashMapMarker.put(sighting,marker);
+
 
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
