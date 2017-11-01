@@ -4,6 +4,7 @@ package cs2340.gatech.edu.rat_tracker.controllers;
  * Created by davonprewitt on 10/22/17.
  */
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -95,8 +96,8 @@ public class MapScreen extends AppCompatActivity
         RatSighting sighting = sightings.get(4);
         LatLng point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
 
-        googleMap.addMarker(new MarkerOptions().position(point)
-                .title("Marker in Sydney"));
+        //googleMap.addMarker(new MarkerOptions().position(point)
+                //.title("Marker in Sydney"));
         // System.out.println(sighting);
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 10.0f));
         SeekBar simpleSeekBar=(SeekBar) findViewById(R.id.bar);
@@ -112,7 +113,7 @@ public class MapScreen extends AppCompatActivity
             public void onStopTrackingTouch(    SeekBar seekBar){
 //                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(finalPoint, progress);
             }});
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 10.0f));
+        //googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 10.0f));
         System.out.println(sightings.toString());
         for (int i = 0; i < sightings.size(); i++) {
             try {
@@ -136,27 +137,43 @@ public class MapScreen extends AppCompatActivity
         int currMin = 0;
         int currMax = sightings.size();
 
-
+        Intent i = new Intent(getBaseContext(), MapScreen.class);
+        i.putExtra("min", currMin);
+        i.putExtra("max", currMax);
         seekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>() {
-
             @Override
             public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
+                try {
+                    int currMin = getIntent().getExtras().getInt("min");
+                    int currMax = getIntent().getExtras().getInt("max");
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+
+                }
                 if (currMin > minValue) {
-                    deleteMap(0, sightings.size());
+                    //deleteMap(0, sightings.size());
                     addMap(minValue, currMin);
+                    System.out.println(currMin + "" + minValue);
                 } else if (currMax < maxValue) {
-                    deleteMap(0, sightings.size());
+                    //deleteMap(0, sightings.size());
                     addMap(currMax, maxValue);
+                    System.out.println(currMax + "" + maxValue);
                 } else if (currMin < minValue) {
-                    deleteMap(0, sightings.size());
-                    addMap(currMin, minValue); //
+                    deleteMap(currMin, minValue);
+                    //addMap(currMin, minValue); //
                 } else if (currMax > maxValue) {
-                    deleteMap(0, sightings.size());
-                    addMap(maxValue, currMax);
+                    deleteMap(maxValue, currMax);
+                    //addMap(maxValue, currMax);
                 }
                 //Now you have the minValue and maxValue of your RangeSeekbar
                 //Toast.makeText(getApplicationContext(), minValue + "-" + maxValue, Toast.LENGTH_LONG).show();
+                //Intent i = new Intent(getBaseContext(), MapScreen.class);
+                i.putExtra("min", minValue);
+                i.putExtra("max", maxValue);
+                //i.putExtra("max", maxValue);
+
             }
+
 
             public void addMap(int start, int stop) {
                 for (int i = start; i < stop; i++) {
