@@ -4,4 +4,6 @@
     <string name="login_failed_message">Unable to login, please try again.</string>
     <string name="ok">OK</string>
     <string name="google_maps_key">AIzaSyCchFElhbGTup1-KKSiZ68uQwWs77Vu73k</string>
+    <string name="facebook_app_id">741423312713192</string>
+    <string name="fb_login_protocol_scheme">fb741423312713192</string>
 </resources>

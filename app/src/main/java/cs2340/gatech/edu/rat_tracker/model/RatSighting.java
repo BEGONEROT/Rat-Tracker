@@ -92,4 +92,35 @@ public class RatSighting implements Serializable {
         return longitude;
     }
 
+
+    public static final String[] resTypes =
+            {"3+ Family Mixed Use Building", "Commercial Building", "1-2 Family Dwelling", "Public Stairs","Vacant Lot", "Construction Site", "Hospital","Catch Basin/Sewer"};
+
+//    private static final String[] boroughs =[];
+
+
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
+
+//    @Override
+//    public void writeToParcel(Parcel out, int flags) {
+//        out.writeArray(data);
+//    }
+//
+//    public static final Parcelable.Creator<RatSighting> CREATOR = new Parcelable.Creator<RatSighting>() {
+//        public RatSighting createFromParcel(Parcel in) {
+//            return new RatSighting(in);
+//        }
+//
+//        public RatSighting[] newArray(int size) {
+//            return new RatSighting[size];
+//        }
+//    };
+//
+//    public RatSighting(Parcel in) {
+//        data = in.createStringArray();
+
+
 }

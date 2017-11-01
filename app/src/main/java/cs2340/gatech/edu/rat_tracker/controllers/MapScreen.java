@@ -23,6 +23,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.MapStyleOptions;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -34,13 +35,15 @@ import java.util.Date;
 public class MapScreen extends AppCompatActivity
         implements OnMapReadyCallback {
 
+    private ArrayList<RatSighting> sightings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Retrieve the content view that renders the map.
         setContentView(R.layout.activity_map_screen);
         Model.getInstance();
-        ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
+        sightings = Model.getInstance().getAllRatData();
         sightings.sort(new Comparator<RatSighting>() {
             @Override
             public int compare(RatSighting rat1, RatSighting rat2) {
@@ -68,13 +71,26 @@ public class MapScreen extends AppCompatActivity
         // Add a marker in Sydney, Australia,
         // and move the map's camera to the same location.
         Model.getInstance();
-        LatLng sydney = new LatLng(-33.852, 151.211);
-        ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
+
+        boolean success = googleMap.setMapStyle(
+                MapStyleOptions.loadRawResourceStyle(
+                        this, R.raw.style_json));
+        //LatLng sydney = new LatLng(-33.852, 151.211);
+        //ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
+
+        RatSighting sighting = sightings.get(4);
+        LatLng point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
+
+        googleMap.addMarker(new MarkerOptions().position(point)
+                .title("Marker in Sydney"));
+        // System.out.println(sighting);
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 10.0f));
         System.out.println(sightings.toString());
         for (int i = 0; i < sightings.size(); i++) {
             try {
-                RatSighting sighting = sightings.get(i);
-                LatLng point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
+                sighting = sightings.get(i);
+                point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
                 googleMap.addMarker(new MarkerOptions().position(point)
                         .title(sighting.getStringDate()));
 
@@ -82,14 +98,6 @@ public class MapScreen extends AppCompatActivity
                 System.out.println("Oops");
             }
         }
-        RatSighting sighting = sightings.get(1);
-        LatLng point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
-//        googleMap.addMarker(new MarkerOptions().position(sydney)
-//                .title(sightings.toString()));
-//        googleMap.addMarker(new MarkerOptions().position(point)
-//                .title("Marker in Sydney"));
-       // System.out.println(sighting);
 
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 10.0f));
     }
 }

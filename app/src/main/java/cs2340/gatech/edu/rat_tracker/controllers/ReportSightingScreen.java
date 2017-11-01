@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -15,15 +16,24 @@ import java.text.SimpleDateFormat;
 
 
 
+
+import org.w3c.dom.Text;
+
 import cs2340.gatech.edu.rat_tracker.R;
+
+import cs2340.gatech.edu.rat_tracker.model.RatSighting;
+
 import cs2340.gatech.edu.rat_tracker.model.Borough;
 import cs2340.gatech.edu.rat_tracker.model.LocationType;
 import cs2340.gatech.edu.rat_tracker.model.Model;
 
 
+
 /**
  * Created by davonprewitt on 10/15/17.
  */
+
+
 
 public class ReportSightingScreen extends AppCompatActivity {
 
@@ -34,6 +44,7 @@ public class ReportSightingScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_sighting_screen);
         final Button submit = (Button) findViewById(R.id.submit);
+
 
         EditText city = (EditText) findViewById(R.id.cityText);
 
@@ -77,9 +88,16 @@ public class ReportSightingScreen extends AppCompatActivity {
                 //updateDatabase("home", "bronx", "ny", "today", "6 blah way", "45701", 41.402, -23.401, "farm");
 
 
+
             }
 
         });
+
+
+
+
+
+
     }
 
 
