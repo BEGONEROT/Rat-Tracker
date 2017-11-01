@@ -10,10 +10,47 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 --><!-- This can go anywhere in your layout (see other demos for some examples). -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controllers.MapScreen" >
+
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/map"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     class="com.google.android.gms.maps.SupportMapFragment"
+
     tools:layout="?android:attr/textEditPasteWindowLayout" />
+
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true" />
+
+    <SeekBar
+        android:id="@+id/bar"
+        android:rotation="270"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="-30dp"
+        android:max="20"
+        android:minWidth="100dp"
+        android:progress="10"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout android:id="@+id/seekbar_placeholder"
+        android:orientation="vertical"
+        android:layout_marginBottom="70dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+
+
+</RelativeLayout>
+
