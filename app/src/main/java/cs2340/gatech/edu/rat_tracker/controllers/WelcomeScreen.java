@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,6 +12,12 @@ import java.util.Map;
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
 import cs2340.gatech.edu.rat_tracker.model.RatSighting;
+
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.GoogleApiClient;
+
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 /**
  * Default screen after login
@@ -20,12 +27,16 @@ import cs2340.gatech.edu.rat_tracker.model.RatSighting;
  * Created by Aadarsh on 10/5/2017.
  */
 
-public class WelcomeScreen extends AppCompatActivity {
+public class WelcomeScreen extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
         Model.getInstance().readRatData();
+
+        webView = (WebView) findViewById(R.id.webView);
+        webView.loadUrl("file:///android_asset/ratgif.html");
+
         /*try {
             DriverManager.getConnection("jdbc:mariadb://localhost:3306/test");
         } catch (Exception e) {
@@ -37,6 +48,8 @@ public class WelcomeScreen extends AppCompatActivity {
 
         myRef.setValue("Hello, World!");*/
     }
+
+    WebView webView;
 
     /**
      * Changes the activity to start screen when logout is pressed
@@ -61,7 +74,7 @@ public class WelcomeScreen extends AppCompatActivity {
      * @param v Current view
      */
     public void onViewStatsPressed(View v) {
-        Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
+        Intent logOutPage = new Intent(WelcomeScreen.this, StatsScreen.class);
         startActivity(logOutPage);
     }
 
@@ -91,5 +104,6 @@ public class WelcomeScreen extends AppCompatActivity {
         Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
         startActivity(logOutPage);
     }
+
 }
 
