@@ -24,7 +24,7 @@
             android:parentActivityName=".controllers.StartScreen" />
         <activity
             android:name=".controllers.RataData"
-            android:parentActivityName=".controllers.ViewRatsScreen"
+            android:parentActivityName=".controllers.WelcomeScreen"
             />
         <activity android:name=".controllers.WelcomeScreen" />
         <activity android:name=".controllers.ViewRatsScreen"
