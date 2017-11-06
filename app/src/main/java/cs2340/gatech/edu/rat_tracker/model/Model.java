@@ -73,7 +73,7 @@ public class Model {
         DatabaseReference myRef = database.getReference("RatSightings");
 
         //myRef.orderByChild("Created Date").limitToLast(10).addListenerForSingleValueEvent(new ValueEventListener() {
-        myRef.limitToFirst(10).addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.limitToLast(100).addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -109,7 +109,7 @@ public class Model {
         myRef = database.getReference("RatSightingsTemp");
 
         //myRef.orderByChild("Created Date").limitToLast(10).addListenerForSingleValueEvent(new ValueEventListener() {
-        myRef.limitToFirst(10).addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.limitToFirst(100).addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

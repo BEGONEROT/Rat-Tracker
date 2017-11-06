@@ -54,15 +54,16 @@ public class RatSighting implements Serializable {
         return date;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         Calendar date = Calendar.getInstance();
         String[] wholeDate = this.date.split("/");
         String[] yearTime = wholeDate[2].split(" ");
         String[] time = yearTime[1].split(":");
         date.set(Integer.parseInt(yearTime[0]), Integer.parseInt(wholeDate[0]), Integer.parseInt(wholeDate[1]),
                 Integer.parseInt(time[0]), Integer.parseInt(time[1]));
-        return date.getTime();
+        return date;
     }
+
 
     public LocationType getLocationType() {
         return locationType;
@@ -90,6 +91,11 @@ public class RatSighting implements Serializable {
 
     public Double getLongitude() {
         return longitude;
+    }
+
+    public int calculateDateInt() {
+        return (this.getDate().get(Calendar.YEAR)*12
+                + this.getDate().get(Calendar.MONTH));
     }
 
 
