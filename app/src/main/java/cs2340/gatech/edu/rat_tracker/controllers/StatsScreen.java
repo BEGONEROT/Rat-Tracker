@@ -5,12 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.LinearLayout;
 
+import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Comparator;
 import java.util.List;
 
@@ -55,12 +57,7 @@ public class StatsScreen extends AppCompatActivity {
         //saved data points
 
         BarGraphSeries<DataPoint> series = new BarGraphSeries<>(dataPoints);
-//                new DataPoint[] {
-//                new DataPoint(0, 1),
-//                new DataPoint(1, 2),
-//                new DataPoint(2, 3),
-//                new DataPoint(3, 4)
-//        });
+
         graph.addSeries(series);
         LinearLayout layout = (LinearLayout) findViewById(R.id.stat_seekbar_placeholder);
         RangeSeekBar<Integer> rangeSeekBar = new RangeSeekBar<>(this);
@@ -81,14 +78,29 @@ public class StatsScreen extends AppCompatActivity {
                 graph.addSeries(newSeries);
             }
         });
-        /*
+        graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
+            @Override
+            public String formatLabel(double value, boolean isValueX) {
+                if (!isValueX) {
+                    // show normal x values
+                    return super.formatLabel(value, isValueX);
+                } else {
+                    // show currency for y values
+                    Calendar startDate = rats.get(0).getDate();
+                    int month = (int) (startDate.get(Calendar.MONTH) + value % 12);
+                    int year = (int) ((int)  startDate.get(Calendar.YEAR) + value/12);
+                    return String.format("%d/%d", month, year);
+                }
+            }
+        });
+
         series.setSpacing(10);
-        graph.getViewport().setMinX(0);
-        graph.getViewport().setMaxX(27);
-        graph.getViewport().setScalableY(false);
+        graph.getViewport().setMaxX(sightsPerMonth.length + 1);
+        graph.getViewport().setMinX(-1);
+        graph.getViewport().setScalable(true);
+        graph.getViewport().setScalableY(true);
         graph.getGridLabelRenderer().setHorizontalAxisTitle("Date");
         graph.getGridLabelRenderer().setVerticalAxisTitle("Number of Sightings");
-        */
     }
 
 
