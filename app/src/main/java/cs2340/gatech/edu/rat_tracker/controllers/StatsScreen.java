@@ -43,9 +43,13 @@ public class StatsScreen extends AppCompatActivity {
         }
 
         GraphView graph = (GraphView) findViewById(R.id.graph);
-        DataPoint[] dataPoints = new DataPoint[sightsPerMonth.length];
-        for (int i = 0; i < sightsPerMonth.length; i++) {
-            dataPoints[i] = new DataPoint(i + 1, sightsPerMonth[i]);
+        DataPoint[] dataPoints = new DataPoint[sightsPerMonth.length + 10];
+        for (int i = 0; i < sightsPerMonth.length + 10; i++) {
+            if (i < sightsPerMonth.length) {
+                dataPoints[i] = new DataPoint(i + 1, sightsPerMonth[i]);
+            } else {
+                dataPoints[i] = new DataPoint(i + 1, 50);
+            }
         }
         BarGraphSeries<DataPoint> series = new BarGraphSeries<>(dataPoints);
 //                new DataPoint[] {
@@ -56,8 +60,7 @@ public class StatsScreen extends AppCompatActivity {
 //        });
         graph.addSeries(series);
         series.setSpacing(50);
-        graph.getViewport().setMinX(-1);
-        graph.getViewport().setMaxX(27);
+        graph.getViewport().setScalable(true);
         graph.getViewport().setScalableY(true);
         graph.getGridLabelRenderer().setHorizontalAxisTitle("Date");
         graph.getGridLabelRenderer().setVerticalAxisTitle("Number of Sightings");
