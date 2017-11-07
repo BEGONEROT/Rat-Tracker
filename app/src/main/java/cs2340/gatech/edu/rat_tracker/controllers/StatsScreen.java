@@ -2,15 +2,17 @@ package cs2340.gatech.edu.rat_tracker.controllers;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.LinearLayout;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
+import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Comparator;
+import java.util.List;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
@@ -44,9 +46,14 @@ public class StatsScreen extends AppCompatActivity {
 
         GraphView graph = (GraphView) findViewById(R.id.graph);
         DataPoint[] dataPoints = new DataPoint[sightsPerMonth.length];
+        int numMonths = 0;
         for (int i = 0; i < sightsPerMonth.length; i++) {
             dataPoints[i] = new DataPoint(i + 1, sightsPerMonth[i]);
+            Log.d("DATA POINT:", "first: " + (i+1) + " second: " + sightsPerMonth[i] );
+            numMonths++;
         }
+        //saved data points
+
         BarGraphSeries<DataPoint> series = new BarGraphSeries<>(dataPoints);
 //                new DataPoint[] {
 //                new DataPoint(0, 1),
@@ -55,12 +62,33 @@ public class StatsScreen extends AppCompatActivity {
 //                new DataPoint(3, 4)
 //        });
         graph.addSeries(series);
-        series.setSpacing(50);
-        graph.getViewport().setMinX(-1);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.stat_seekbar_placeholder);
+        RangeSeekBar<Integer> rangeSeekBar = new RangeSeekBar<>(this);
+        rangeSeekBar.setRangeValues(0, dataPoints.length);
+        rangeSeekBar.setNotifyWhileDragging(true);
+        layout.addView(rangeSeekBar);
+
+        rangeSeekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>() {
+            @Override
+            public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
+                int length = maxValue - minValue;
+                DataPoint[] tmppoints = new DataPoint[length];
+                for (int i = minValue; i < maxValue; i++) {
+                    tmppoints[i - minValue] = dataPoints[i];
+                }
+                BarGraphSeries<DataPoint> newSeries = new BarGraphSeries<>(tmppoints);
+                graph.removeAllSeries();
+                graph.addSeries(newSeries);
+            }
+        });
+        /*
+        series.setSpacing(10);
+        graph.getViewport().setMinX(0);
         graph.getViewport().setMaxX(27);
-        graph.getViewport().setScalableY(true);
+        graph.getViewport().setScalableY(false);
         graph.getGridLabelRenderer().setHorizontalAxisTitle("Date");
         graph.getGridLabelRenderer().setVerticalAxisTitle("Number of Sightings");
+        */
     }
 
 
