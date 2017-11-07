@@ -37,6 +37,12 @@
             android:parentActivityName=".controllers.WelcomeScreen"/>
         <activity android:name=".controllers.MapScreen"
             android:parentActivityName=".controllers.WelcomeScreen" />
+        <activity android:name=".controllers.SettingsScreen"
+            android:parentActivityName=".controllers.WelcomeScreen" />
+        <activity android:name=".controllers.updateEmailScreen"
+            android:parentActivityName=".controllers.SettingsScreen" />
+        <activity android:name=".controllers.UpdatePasswordScreen"
+            android:parentActivityName=".controllers.SettingsScreen" />
 
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
