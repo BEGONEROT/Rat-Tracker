@@ -18,12 +18,13 @@ import cs2340.gatech.edu.rat_tracker.R;
 
 public class UpdatePasswordScreen extends AppCompatActivity {
 
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
+        mAuth = FirebaseAuth.getInstance();
     }
 
     /**
@@ -37,12 +38,13 @@ public class UpdatePasswordScreen extends AppCompatActivity {
         String newPassword = newPass.getText().toString();
         EditText confirmNewPass = (EditText) findViewById(R.id.confirmNewPass);
         String confirmNewPassWord = confirmNewPass.getText().toString();
+        mAuth = FirebaseAuth.getInstance();
 
-        if (!Objects.equals(oldPassword, "") && Objects.equals(oldPassword, newPassword)) {
-            if (newPassword.equals(confirmNewPassWord) && !Objects.equals(newPassword, "")) {
+        //if (!Objects.equals(oldPassword, "") && Objects.equals(oldPassword, newPassword)) {
+            //if (newPassword.equals(confirmNewPassWord) && !Objects.equals(newPassword, "")) {
                 mAuth.getCurrentUser().updatePassword(newPassword);
-            }
-        }
+            //}
+        //}
 
         Intent logOutPage = new Intent(UpdatePasswordScreen.this, SettingsScreen.class);
         startActivity(logOutPage);

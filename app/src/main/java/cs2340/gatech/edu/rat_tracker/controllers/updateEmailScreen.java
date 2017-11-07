@@ -17,12 +17,13 @@ import cs2340.gatech.edu.rat_tracker.R;
 
 public class updateEmailScreen extends AppCompatActivity {
 
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_email);
+        mAuth = FirebaseAuth.getInstance();
 
         String oldEmail = mAuth.getCurrentUser().getEmail();
 
@@ -35,6 +36,7 @@ public class updateEmailScreen extends AppCompatActivity {
      * @param v Current view
      */
     public void onUpdateEmailPressed(View v) {
+        mAuth = FirebaseAuth.getInstance();
         EditText usernameField = (EditText) findViewById(R.id.newEmail);
         String username = usernameField.getText().toString();
         mAuth.getCurrentUser().updateEmail(username);
