@@ -39,7 +39,7 @@ import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import static android.app.PendingIntent.getActivity;
@@ -130,7 +130,7 @@ public class MapScreen extends AppCompatActivity
                 sighting = sightings.get(i);
                 point = new LatLng(sighting.getLatitude(), sighting.getLongitude());
                 MarkerOptions markeroptions = new MarkerOptions().position(point)
-                        .title(sighting.getDate().toString())
+                        .title(sighting.getStringDate())
                         .snippet(sighting.getKey());
                 Marker marker = googleMap.addMarker(markeroptions);
                 marker.setTag(sighting);
