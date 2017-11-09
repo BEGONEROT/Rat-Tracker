@@ -15,13 +15,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 
 
-
-
-import org.w3c.dom.Text;
-
 import cs2340.gatech.edu.rat_tracker.R;
-
-import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
 import cs2340.gatech.edu.rat_tracker.model.Borough;
 import cs2340.gatech.edu.rat_tracker.model.LocationType;
@@ -59,7 +53,7 @@ public class ReportSightingScreen extends AppCompatActivity {
         EditText address = (EditText) findViewById(R.id.addressField);
         EditText longitude = (EditText) findViewById(R.id.longitude);
         EditText latitude = (EditText) findViewById(R.id.latitude);
-        EditText zip = (EditText) findViewById(R.id.zipcode);
+        EditText zip = (EditText) findViewById(R.id.zipCode);
 
 
 
@@ -75,11 +69,11 @@ public class ReportSightingScreen extends AppCompatActivity {
                 String newLocation = locationType.getSelectedItem().toString();
                 String newAddress = address.getText().toString();
                 double newLongitude = Double.parseDouble(longitude.getText().toString());
-                double newLatitide = Double.parseDouble(latitude.getText().toString());
+                double newLatitude = Double.parseDouble(latitude.getText().toString());
                 String newZip = zip.getText().toString();
 
                 Model.getInstance().addNewSighting("ADDRESS", newBorough, newCity, dateTime, newAddress, newZip,
-                        newLatitide, newLongitude, newLocation);
+                        newLatitude, newLongitude, newLocation);
                 Intent intent = new Intent(ReportSightingScreen.this, WelcomeScreen.class);
                 startActivity(intent);
 

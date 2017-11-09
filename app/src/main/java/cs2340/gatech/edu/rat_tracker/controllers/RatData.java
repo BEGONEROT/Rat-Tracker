@@ -11,7 +11,6 @@ import android.content.Intent;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
@@ -20,9 +19,9 @@ import  cs2340.gatech.edu.rat_tracker.model.RatSighting;
 /**
  * Screen for displaying all recent rat sightings
  */
-public class RataData extends AppCompatActivity {
+public class RatData extends AppCompatActivity {
 
-    private RecyclerView ratdataview;
+    private RecyclerView ratDataView;
     private SightingListAdapter adapter;
     private RecyclerView.LayoutManager layout;
     private final String TAG = "RatDataList: ";
@@ -36,9 +35,9 @@ public class RataData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rata_data);
         Model.getInstance();
-        ratdataview = (RecyclerView) findViewById(R.id.my_recycler_view);
+        ratDataView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
-        ratdataview.setHasFixedSize(true);
+        ratDataView.setHasFixedSize(true);
 
         ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
         sightings.sort(new Comparator<RatSighting>() {
@@ -50,11 +49,11 @@ public class RataData extends AppCompatActivity {
         Log.w(TAG, sightings.toString());
 
         adapter = new SightingListAdapter(this, sightings);
-        ratdataview.setAdapter(adapter);
+        ratDataView.setAdapter(adapter);
         layout = new LinearLayoutManager(this);
-        ratdataview.setLayoutManager(layout);
-        ratdataview.addOnItemTouchListener(
-                new RecyclerItemClickListener(this, ratdataview ,new RecyclerItemClickListener.OnItemClickListener() {
+        ratDataView.setLayoutManager(layout);
+        ratDataView.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, ratDataView,new RecyclerItemClickListener.OnItemClickListener() {
                     private ArrayList<RatSighting> data;
                     @Override public void onItemClick(View view, int position) {
                         data = adapter.getData();
@@ -78,7 +77,7 @@ public class RataData extends AppCompatActivity {
     /*public void onRefreshPressed(View v) {
         HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
         adapter = new SightingListAdapter(sightings.values());
-        ratdataview.setAdapter(adapter);
+        ratDataView.setAdapter(adapter);
     }*/
     
 }

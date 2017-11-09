@@ -2,7 +2,6 @@ package cs2340.gatech.edu.rat_tracker.controllers;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -103,10 +102,10 @@ public class LoginScreen extends AppCompatActivity implements
 
 
         mCallbackManager = CallbackManager.Factory.create();
-        LoginButton fbloginButton = (LoginButton) findViewById(R.id.fb_login_button);
-        //LoginButton googleloginButton = (LoginButton) findViewById(R.id.google_login_button);
-        fbloginButton.setReadPermissions("email", "public_profile");
-        fbloginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+        LoginButton fbLoginButton = (LoginButton) findViewById(R.id.fb_login_button);
+        //LoginButton googleLoginButton = (LoginButton) findViewById(R.id.google_login_button);
+        fbLoginButton.setReadPermissions("email", "public_profile");
+        fbLoginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
@@ -167,10 +166,10 @@ public class LoginScreen extends AppCompatActivity implements
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView usernameview = (TextView) findViewById(R.id.registerusername);
-                String username = usernameview.getText().toString();
-                TextView passwordview = (TextView) findViewById(R.id.registerpassword);
-                String password = passwordview.getText().toString();
+                TextView usernameView = (TextView) findViewById(R.id.registerUsername);
+                String username = usernameView.getText().toString();
+                TextView passwordView = (TextView) findViewById(R.id.registerPassword);
+                String password = passwordView.getText().toString();
 
                 signIn(username, password);
 

@@ -7,7 +7,7 @@
     tools:context="cs2340.gatech.edu.rat_tracker.controllers.RegistrationScreen">
 
     <EditText
-        android:id="@+id/registerusername"
+        android:id="@+id/registerUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -18,13 +18,13 @@
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/registerpassword"
+        app:layout_constraintBottom_toTopOf="@+id/registerPassword"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
-        android:id="@+id/registerpassword"
+        android:id="@+id/registerPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -68,7 +68,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/registerusername"
+        app:layout_constraintBottom_toTopOf="@+id/registerUsername"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
 
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:text="Admin"
         android:layout_marginTop="7dp"
-        app:layout_constraintTop_toBottomOf="@+id/registerpassword"
+        app:layout_constraintTop_toBottomOf="@+id/registerPassword"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"

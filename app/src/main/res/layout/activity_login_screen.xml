@@ -15,7 +15,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/registerusername"
+        app:layout_constraintBottom_toTopOf="@+id/registerUsername"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -25,16 +25,16 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Passwod"
+        android:text="Password"
         android:layout_marginBottom="7dp"
-        app:layout_constraintBottom_toTopOf="@+id/registerpassword"
+        app:layout_constraintBottom_toTopOf="@+id/registerPassword"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
-        android:id="@+id/registerusername"
+        android:id="@+id/registerUsername"
         android:layout_width="219dp"
         android:layout_height="41dp"
         android:layout_marginBottom="8dp"
@@ -54,7 +54,7 @@
         tools:layout_constraintHeight_max="135dp" />
 
     <EditText
-        android:id="@+id/registerpassword"
+        android:id="@+id/registerPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -65,7 +65,7 @@
         android:inputType="textPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerusername"
+        app:layout_constraintTop_toBottomOf="@+id/registerUsername"
         app:layout_constraintHorizontal_bias="0.503" />
 
     <Button
@@ -106,7 +106,7 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerpassword"
+        app:layout_constraintTop_toBottomOf="@+id/registerPassword"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintTop_creator="1" />
 
