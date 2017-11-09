@@ -8,18 +8,8 @@ import android.webkit.WebView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
-import cs2340.gatech.edu.rat_tracker.model.RatSighting;
-
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.common.api.GoogleApiClient;
-
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
 
 /**
  * Default screen after login

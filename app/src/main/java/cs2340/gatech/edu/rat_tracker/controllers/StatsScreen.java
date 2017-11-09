@@ -14,7 +14,6 @@ import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Comparator;
-import java.util.List;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;

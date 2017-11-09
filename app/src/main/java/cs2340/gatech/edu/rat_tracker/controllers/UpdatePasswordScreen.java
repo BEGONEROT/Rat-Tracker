@@ -8,8 +8,6 @@ import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.Objects;
-
 import cs2340.gatech.edu.rat_tracker.R;
 
 /**

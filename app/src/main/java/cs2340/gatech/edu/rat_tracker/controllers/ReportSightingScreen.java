@@ -15,13 +15,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 
 
-
-
-import org.w3c.dom.Text;
-
 import cs2340.gatech.edu.rat_tracker.R;
-
-import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
 import cs2340.gatech.edu.rat_tracker.model.Borough;
 import cs2340.gatech.edu.rat_tracker.model.LocationType;

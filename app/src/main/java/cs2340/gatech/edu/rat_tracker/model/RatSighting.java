@@ -2,7 +2,6 @@ package cs2340.gatech.edu.rat_tracker.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Class for storing data about a rat sighting

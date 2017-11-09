@@ -11,7 +11,6 @@ import android.content.Intent;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;

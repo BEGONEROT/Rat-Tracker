@@ -1,7 +1,5 @@
 package cs2340.gatech.edu.rat_tracker.model;
 
-import java.util.ArrayList;
-
 /**
  * Enum for location type
  * Default values for the report spinner

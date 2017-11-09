@@ -5,8 +5,6 @@ package cs2340.gatech.edu.rat_tracker.controllers;
  */
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
@@ -22,15 +20,12 @@ import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.SeekBar;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -39,10 +34,7 @@ import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Calendar;
 import java.util.HashMap;
-
-import static android.app.PendingIntent.getActivity;
 
 /**
  * An activity that displays a Google map with a marker (pin) to indicate a particular location.
