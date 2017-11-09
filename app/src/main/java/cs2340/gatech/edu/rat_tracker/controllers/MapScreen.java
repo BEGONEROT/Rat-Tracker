@@ -1,20 +1,10 @@
 package cs2340.gatech.edu.rat_tracker.controllers;
 
-/**
- * Created by davonprewitt on 10/22/17.
- */
-
 import android.content.Intent;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
 import cs2340.gatech.edu.rat_tracker.model.RatSighting;
-
-
-/**
- * Created by davonprewitt on 10/22/17.
- */
-
 
 
 import android.os.Bundle;

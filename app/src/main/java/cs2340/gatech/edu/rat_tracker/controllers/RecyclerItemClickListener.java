@@ -1,10 +1,5 @@
 package cs2340.gatech.edu.rat_tracker.controllers;
 
-/**
- *
- * Created by dwarr on 10/11/2017.
- */
-
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;

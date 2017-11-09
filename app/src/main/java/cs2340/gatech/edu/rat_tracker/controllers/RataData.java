@@ -63,16 +63,5 @@ public class RataData extends AppCompatActivity {
                 })
         );
     }
-
-    /**
-     * This method refreshes the information in the ListView
-     *
-     * @param v the view
-     */
-    /*public void onRefreshPressed(View v) {
-        HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
-        adapter = new SightingListAdapter(sightings.values());
-        ratdataview.setAdapter(adapter);
-    }*/
     
 }
