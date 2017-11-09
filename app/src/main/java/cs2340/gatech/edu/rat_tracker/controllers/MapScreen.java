@@ -53,12 +53,7 @@ public class MapScreen extends AppCompatActivity
         setContentView(R.layout.activity_map_screen);
         Model.getInstance();
         ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
-        sightings.sort(new Comparator<RatSighting>() {
-            @Override
-            public int compare(RatSighting rat1, RatSighting rat2) {
-                return rat1.getDate().compareTo(rat2.getDate());
-            }
-        });
+        sightings.sort((rat1, rat2) -> rat1.getDate().compareTo(rat2.getDate()));
 
 
         // Get the SupportMapFragment and request notification
@@ -133,7 +128,7 @@ public class MapScreen extends AppCompatActivity
             }
         }
 
-        RangeSeekBar<Integer> seekBar = new RangeSeekBar<Integer>(this);
+        RangeSeekBar<Integer> seekBar = new RangeSeekBar<>(this);
         seekBar.setRangeValues(0, sightings.size());
 
 

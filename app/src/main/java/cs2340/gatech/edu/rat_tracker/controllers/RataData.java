@@ -40,12 +40,7 @@ public class RataData extends AppCompatActivity {
         ratdataview.setHasFixedSize(true);
 
         ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
-        sightings.sort(new Comparator<RatSighting>() {
-            @Override
-            public int compare(RatSighting rat1, RatSighting rat2) {
-                return rat2.getDate().compareTo(rat1.getDate());
-            }
-        });
+        sightings.sort((rat1, rat2) -> rat2.getDate().compareTo(rat1.getDate()));
         Log.w(TAG, sightings.toString());
 
         adapter = new SightingListAdapter(this, sightings);

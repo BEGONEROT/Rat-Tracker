@@ -29,12 +29,7 @@ public class StatsScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats_screen);
         ArrayList<RatSighting> rats = Model.getInstance().getAllRatData();
-        rats.sort(new Comparator<RatSighting>() {
-            @Override
-            public int compare(RatSighting rat1, RatSighting rat2) {
-                return rat1.getDate().compareTo(rat2.getDate());
-            }
-        });
+        rats.sort((rat1, rat2) -> rat1.getDate().compareTo(rat2.getDate()));
         System.out.println(rats.size());
         int dateRange = rats.get(rats.size() - 1).calculateDateInt()
                 - rats.get(0).calculateDateInt();
@@ -64,18 +59,15 @@ public class StatsScreen extends AppCompatActivity {
         rangeSeekBar.setNotifyWhileDragging(true);
         layout.addView(rangeSeekBar);
 
-        rangeSeekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>() {
-            @Override
-            public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
-                int length = maxValue - minValue;
-                DataPoint[] tmppoints = new DataPoint[length];
-                for (int i = minValue; i < maxValue; i++) {
-                    tmppoints[i - minValue] = dataPoints[i];
-                }
-                BarGraphSeries<DataPoint> newSeries = new BarGraphSeries<>(tmppoints);
-                graph.removeAllSeries();
-                graph.addSeries(newSeries);
+        rangeSeekBar.setOnRangeSeekBarChangeListener((bar, minValue, maxValue) -> {
+            int length = maxValue - minValue;
+            DataPoint[] tmppoints = new DataPoint[length];
+            for (int i = minValue; i < maxValue; i++) {
+                tmppoints[i - minValue] = dataPoints[i];
             }
+            BarGraphSeries<DataPoint> newSeries = new BarGraphSeries<>(tmppoints);
+            graph.removeAllSeries();
+            graph.addSeries(newSeries);
         });
         graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
             @Override
