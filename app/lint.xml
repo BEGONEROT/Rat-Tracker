@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="IconDuplicates">
+        <ignore path="src/main/res/drawable/begonerotdeepfried.png" />
+        <ignore path="src/main/res/drawable/begonerotlogo.png" />
+    </issue>
+    <issue id="IconLocation">
+        <ignore path="src/main/res/drawable/begonerotdeepfried.png" />
+        <ignore path="src/main/res/drawable/begonerotlogo.png" />
+    </issue>
+    <issue id="UnusedResources">
+        <ignore path="src/main/res/drawable/begonerotdeepfried.png" />
+    </issue>
+</lint>

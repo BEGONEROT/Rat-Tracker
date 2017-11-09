@@ -21,7 +21,8 @@
         ap:layout_constraintHorizontal_bias="0.0"
         ap:layout_constraintStart_toStartOf="parent"
         ap:layout_constraintTop_toTopOf="parent"
-        ap:layout_constraintVertical_bias="0.153" />
+        ap:layout_constraintVertical_bias="0.153"
+        tools:ignore="InefficientWeight" />
 
     <LinearLayout android:id="@+id/stat_seekbar_placeholder"
         android:orientation="vertical"
@@ -29,7 +30,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        tools:ignore="ObsoleteLayoutParam">
 
     </LinearLayout>
 
