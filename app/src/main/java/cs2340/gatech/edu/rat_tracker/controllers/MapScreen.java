@@ -23,7 +23,6 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 
 /**
