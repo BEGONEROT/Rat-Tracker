@@ -37,6 +37,7 @@ public class SettingsScreen extends AppCompatActivity {
     public void onChangeEmailPressed(View v) {
         Intent logOutPage = new Intent(SettingsScreen.this, updateEmailScreen.class);
         startActivity(logOutPage);
+        System.out.println("DEBUG");
         String currentEmail = mAuth.getCurrentUser().getEmail();
         TextView email = (TextView) findViewById(R.id.email);
         email.setText(currentEmail);

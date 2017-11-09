@@ -40,7 +40,7 @@ public class updateEmailScreen extends AppCompatActivity {
         EditText usernameField = (EditText) findViewById(R.id.newEmail);
         String username = usernameField.getText().toString();
         mAuth.getCurrentUser().updateEmail(username);
-
+        
         Intent logOutPage = new Intent(updateEmailScreen.this, SettingsScreen.class);
         startActivity(logOutPage);
     }
