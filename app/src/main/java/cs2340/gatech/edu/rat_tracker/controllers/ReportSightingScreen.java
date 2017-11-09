@@ -55,7 +55,7 @@ public class ReportSightingScreen extends AppCompatActivity {
         EditText address = (EditText) findViewById(R.id.addressField);
         EditText longitude = (EditText) findViewById(R.id.longitude);
         EditText latitude = (EditText) findViewById(R.id.latitude);
-        EditText zip = (EditText) findViewById(R.id.zipcode);
+        EditText zip = (EditText) findViewById(R.id.zipCode);
 
 
 

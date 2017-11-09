@@ -26,14 +26,14 @@
             android:name=".controllers.RegistrationScreen"
             android:parentActivityName=".controllers.StartScreen" />
         <activity
-            android:name=".controllers.RataData"
+            android:name=".controllers.RatData"
             android:parentActivityName=".controllers.WelcomeScreen"
             />
         <activity android:name=".controllers.WelcomeScreen" />
         <activity android:name=".controllers.ViewRatsScreen"
             android:parentActivityName=".controllers.WelcomeScreen"/>
         <activity android:name=".controllers.RatDetails"
-            android:parentActivityName=".controllers.RataData"/>
+            android:parentActivityName=".controllers.RatData"/>
         <activity android:name=".controllers.ReportSightingScreen"
             android:parentActivityName=".controllers.WelcomeScreen"/>
         <activity android:name=".controllers.StatsScreen"

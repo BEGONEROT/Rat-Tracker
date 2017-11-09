@@ -55,9 +55,9 @@ public class RegistrationScreen extends AppCompatActivity {
 
         //set up register button handler
         register.setOnClickListener(v -> {
-            TextView usernameField = (TextView) findViewById(R.id.registerusername);
+            TextView usernameField = (TextView) findViewById(R.id.registerUsername);
             String username = usernameField.getText().toString();
-            TextView passwordField = (TextView) findViewById(R.id.registerpassword);
+            TextView passwordField = (TextView) findViewById(R.id.registerPassword);
             String password = passwordField.getText().toString();
             isAdmin = checkBox.isChecked();
 

@@ -25,7 +25,7 @@ public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapte
     private Context mContext;
 
     /**
-     * This will create the standard item view the recyclerview will use
+     * This will create the standard item view the recyclerView will use
      */
     @SuppressWarnings("WeakerAccess")
     protected static class ViewHolder extends RecyclerView.ViewHolder {
