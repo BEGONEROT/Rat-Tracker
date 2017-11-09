@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -28,6 +30,8 @@ import com.google.android.gms.common.api.Status;
  */
 
 public class WelcomeScreen extends AppCompatActivity{
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +69,7 @@ public class WelcomeScreen extends AppCompatActivity{
      * @param v Current view
      */
     public void onViewRatPressed(View v) {
-        Intent logOutPage = new Intent(WelcomeScreen.this, ViewRatsScreen.class);
+        Intent logOutPage = new Intent(WelcomeScreen.this, RataData.class);
         startActivity(logOutPage);
     }
 
@@ -92,7 +96,7 @@ public class WelcomeScreen extends AppCompatActivity{
      * @param v Current view
      */
     public void onSettingsPressed(View v) {
-        Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
+        Intent logOutPage = new Intent(WelcomeScreen.this, SettingsScreen.class);
         startActivity(logOutPage);
     }
 
@@ -101,6 +105,7 @@ public class WelcomeScreen extends AppCompatActivity{
      * @param v Current view
      */
     public void onLogoutPressed(View v) {
+        mAuth.getInstance().signOut();
         Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
         startActivity(logOutPage);
     }
