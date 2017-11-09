@@ -9,6 +9,7 @@ import java.util.Calendar;
  * Created by Dallas on 10/10/2017.
  */
 
+@SuppressWarnings("ALL")
 public class RatSighting implements Serializable {
 
     private String key;

@@ -23,12 +23,12 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 
 /**
  * An activity that displays a Google map with a marker (pin) to indicate a particular location.
  */
+@SuppressWarnings("ALL")
 public class MapScreen extends AppCompatActivity
         implements OnMapReadyCallback,
         GoogleMap.OnInfoWindowClickListener {

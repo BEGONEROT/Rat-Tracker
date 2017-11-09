@@ -10,6 +10,7 @@ import android.view.View;
 /**
  * This class listens for when an item in the DropDown menu is clicked
  */
+@SuppressWarnings("ALL")
 public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
     private OnItemClickListener mListener;
 

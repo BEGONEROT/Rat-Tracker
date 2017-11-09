@@ -18,6 +18,7 @@ import cs2340.gatech.edu.rat_tracker.R;
  * Created by dwarr on 10/11/2017.
  */
 
+@SuppressWarnings("ALL")
 public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapter.ViewHolder> {
 
     private ArrayList<RatSighting> data;
@@ -26,6 +27,7 @@ public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapte
     /**
      * This will create the standard item view the recyclerView will use
      */
+    @SuppressWarnings("WeakerAccess")
     protected static class ViewHolder extends RecyclerView.ViewHolder {
         protected TextView borough;
         protected TextView date;
@@ -67,8 +69,7 @@ public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapte
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.rat_sightings, parent, false);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        return new ViewHolder(v);
     }
 
     @Override

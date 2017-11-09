@@ -14,16 +14,12 @@ import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Comparator;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
 import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
-/**
- * Created by Aadarsh on 10/26/2017.
- */
-
+@SuppressWarnings("ALL")
 public class StatsScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,12 +72,13 @@ public class StatsScreen extends AppCompatActivity {
             public String formatLabel(double value, boolean isValueX) {
                 if (!isValueX) {
                     // show normal x values
+                    //noinspection ConstantConditions
                     return super.formatLabel(value, isValueX);
                 } else {
                     // show currency for y values
                     Calendar startDate = rats.get(0).getDate();
                     int month = (int) (startDate.get(Calendar.MONTH) + value % 12);
-                    int year = (int) ((int)  startDate.get(Calendar.YEAR) + value/12);
+                    int year = (int) (startDate.get(Calendar.YEAR) + value/12);
                     return String.format("%d/%d", month, year);
                 }
             }

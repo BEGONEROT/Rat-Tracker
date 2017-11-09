@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
@@ -30,6 +29,7 @@ import cs2340.gatech.edu.rat_tracker.model.Model;
 
 
 
+@SuppressWarnings("ALL")
 public class ReportSightingScreen extends AppCompatActivity {
 
     private final String TAG = "ReportSightingScreen: ";
