@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * Created by dayynn on 9/28/17.
  */
 
+@SuppressWarnings("ALL")
 public class Model {
     private static final Model ourInstance = new Model();
 

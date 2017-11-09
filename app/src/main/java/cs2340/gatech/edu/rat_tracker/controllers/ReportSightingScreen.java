@@ -30,6 +30,7 @@ import cs2340.gatech.edu.rat_tracker.model.Model;
 
 
 
+@SuppressWarnings("ALL")
 public class ReportSightingScreen extends AppCompatActivity {
 
     private final String TAG = "ReportSightingScreen: ";

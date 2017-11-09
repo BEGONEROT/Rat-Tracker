@@ -19,6 +19,7 @@ import cs2340.gatech.edu.rat_tracker.model.Model;
  * Created by Aadarsh on 10/5/2017.
  */
 
+@SuppressWarnings("ALL")
 public class WelcomeScreen extends AppCompatActivity{
     private FirebaseAuth mAuth;
 
@@ -96,6 +97,7 @@ public class WelcomeScreen extends AppCompatActivity{
      * @param v Current view
      */
     public void onLogoutPressed(View v) {
+        //noinspection AccessStaticViaInstance
         mAuth.getInstance().signOut();
         Intent logOutPage = new Intent(WelcomeScreen.this, StartScreen.class);
         startActivity(logOutPage);

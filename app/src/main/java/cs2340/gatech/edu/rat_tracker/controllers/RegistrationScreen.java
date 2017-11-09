@@ -25,6 +25,7 @@ import cs2340.gatech.edu.rat_tracker.R;
 /**
  * Screen for registering a new user
  */
+@SuppressWarnings("ALL")
 public class RegistrationScreen extends AppCompatActivity {
 
     private CheckBox checkBox;

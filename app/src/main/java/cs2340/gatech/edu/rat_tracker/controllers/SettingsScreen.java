@@ -14,6 +14,7 @@ import cs2340.gatech.edu.rat_tracker.R;
  * Created by Aadarsh on 11/6/2017.
  */
 
+@SuppressWarnings("ALL")
 public class SettingsScreen extends AppCompatActivity {
 
     private FirebaseAuth mAuth;

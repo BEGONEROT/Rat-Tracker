@@ -41,6 +41,7 @@ import cs2340.gatech.edu.rat_tracker.R;
  * Screen for logging into the app
  *
  */
+@SuppressWarnings("ALL")
 public class LoginScreen extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
     CallbackManager callbackManager;

@@ -11,6 +11,7 @@ import cs2340.gatech.edu.rat_tracker.R;
  * Placeholder for the map
  * Created by Aadarsh on 10/5/2017.
  */
+@SuppressWarnings("ALL")
 public class ViewRatsScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

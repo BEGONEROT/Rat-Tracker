@@ -19,6 +19,7 @@ import  cs2340.gatech.edu.rat_tracker.model.RatSighting;
 /**
  * Screen for displaying all recent rat sightings
  */
+@SuppressWarnings("ALL")
 public class RataData extends AppCompatActivity {
 
     private RecyclerView ratdataview;

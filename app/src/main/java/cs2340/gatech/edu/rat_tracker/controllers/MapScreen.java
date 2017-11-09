@@ -29,6 +29,7 @@ import java.util.HashMap;
 /**
  * An activity that displays a Google map with a marker (pin) to indicate a particular location.
  */
+@SuppressWarnings("ALL")
 public class MapScreen extends AppCompatActivity
         implements OnMapReadyCallback,
         GoogleMap.OnInfoWindowClickListener {

@@ -6,6 +6,7 @@ import java.io.Serializable;
  * Created by dwarr on 10/17/2017.
  */
 
+@SuppressWarnings("ALL")
 public enum Borough implements Serializable {
 
     MANHATTAN("MANHATTAN"),

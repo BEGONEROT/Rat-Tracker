@@ -10,6 +10,7 @@ import cs2340.gatech.edu.rat_tracker.R;
 /**
  * The start screen of the app that appears on startup
  */
+@SuppressWarnings("ALL")
 public class StartScreen extends AppCompatActivity {
 
     /**
