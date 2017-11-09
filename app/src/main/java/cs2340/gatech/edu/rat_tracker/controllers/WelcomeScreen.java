@@ -6,10 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 
-import com.google.firebase.auth.FirebaseAuth;
+import java.util.ArrayList;
+import java.util.Map;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
+import cs2340.gatech.edu.rat_tracker.model.RatSighting;
+
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.GoogleApiClient;
+
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * Default screen after login
@@ -26,10 +35,8 @@ public class WelcomeScreen extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Model.getInstance().readRatData();
         setContentView(R.layout.activity_welcome_screen);
-
-
+        Model instance = Model.getInstance();
         webView = (WebView) findViewById(R.id.webView);
         webView.loadUrl("file:///android_asset/ratgif.html");
 

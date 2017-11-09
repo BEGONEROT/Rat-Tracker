@@ -66,7 +66,6 @@ public class MapScreen extends AppCompatActivity
     public void onMapReady(GoogleMap googleMap) {
         // Add a marker in Sydney, Australia,
         // and move the map's camera to the same location.
-        Model.getInstance();
         googleMap.setOnInfoWindowClickListener(this);
         /*UiSettings uiSettings = googleMap.getUiSettings();
         uiSettings.setZoomControlsEnabled(true);
