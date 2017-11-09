@@ -6,7 +6,6 @@
     <string name="google_maps_key">AIzaSyCchFElhbGTup1-KKSiZ68uQwWs77Vu73k</string>
     <string name="facebook_app_id">741423312713192</string>
     <string name="fb_login_protocol_scheme">fb741423312713192</string>
-    <string name="update" tools:ignore="DuplicateDefinition">Update</string>
     <string name="new_password">New Password</string>
     <string name="confirm_new_password">Confirm New Password</string>
     <string name="longitude">Longitude</string>
@@ -15,7 +14,7 @@
     <string name="email">email</string>
     <string name="new_email_address">New Email Address</string>
     <string name="update_email">Update Email</string>
-    <string name="update" tools:ignore="DuplicateDefinition">Update</string>
+    <string name="update">Update</string>
     <string name="old_password">Old Password</string>
     <string name="password">Password</string>
 </resources>
