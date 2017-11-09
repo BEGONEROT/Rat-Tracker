@@ -211,7 +211,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/textView6"
@@ -230,7 +231,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            tools:ignore="LabelFor" />
 
         <Button
             android:id="@+id/submit"
