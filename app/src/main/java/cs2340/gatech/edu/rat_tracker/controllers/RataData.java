@@ -10,6 +10,7 @@ import android.content.Intent;
 
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 
 import cs2340.gatech.edu.rat_tracker.R;
@@ -40,6 +41,12 @@ public class RataData extends AppCompatActivity {
         ratdataview.setHasFixedSize(true);
 
         ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
+        sightings.sort(new Comparator<RatSighting>() {
+            @Override
+            public int compare(RatSighting rat1, RatSighting rat2) {
+                return rat2.getDate().compareTo(rat1.getDate());
+            }
+        });
         Log.w(TAG, sightings.toString());
 
         adapter = new SightingListAdapter(this, sightings);

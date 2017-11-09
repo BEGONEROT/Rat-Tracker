@@ -1,5 +1,7 @@
 package cs2340.gatech.edu.rat_tracker.model;
 
+import java.util.ArrayList;
+
 /**
  * Enum for location type
  * Default values for the report spinner
@@ -58,5 +60,14 @@ public enum LocationType {
     @Override
     public String toString() {
         return description;
+    }
+
+    public static LocationType fromString(String input) {
+        for (LocationType loc : LocationType.values()) {
+            if (loc.description.equalsIgnoreCase(input)) {
+                return loc;
+            }
+        }
+        return null;
     }
 }

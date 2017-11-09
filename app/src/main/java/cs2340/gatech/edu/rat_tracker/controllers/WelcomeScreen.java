@@ -35,8 +35,9 @@ public class WelcomeScreen extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome_screen);
         Model.getInstance().readRatData();
+        setContentView(R.layout.activity_welcome_screen);
+
 
         webView = (WebView) findViewById(R.id.webView);
         webView.loadUrl("file:///android_asset/ratgif.html");
