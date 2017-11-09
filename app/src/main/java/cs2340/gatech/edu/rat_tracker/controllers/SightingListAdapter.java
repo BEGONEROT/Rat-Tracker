@@ -50,7 +50,7 @@ public class SightingListAdapter extends RecyclerView.Adapter<SightingListAdapte
      * @param ratData collection of rat data values
      */
     public SightingListAdapter(Context context, Collection<RatSighting> ratData) {
-        data = new ArrayList<RatSighting>(ratData);
+        data = new ArrayList<>(ratData);
         mContext = context;
     }
 

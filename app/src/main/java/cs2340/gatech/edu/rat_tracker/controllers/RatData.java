@@ -40,12 +40,7 @@ public class RatData extends AppCompatActivity {
         ratDataView.setHasFixedSize(true);
 
         ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
-        sightings.sort(new Comparator<RatSighting>() {
-            @Override
-            public int compare(RatSighting rat1, RatSighting rat2) {
-                return rat2.getDate().compareTo(rat1.getDate());
-            }
-        });
+        sightings.sort((rat1, rat2) -> rat2.getDate().compareTo(rat1.getDate()));
         Log.w(TAG, sightings.toString());
 
         adapter = new SightingListAdapter(this, sightings);
@@ -68,16 +63,5 @@ public class RatData extends AppCompatActivity {
                 })
         );
     }
-
-    /**
-     * This method refreshes the information in the ListView
-     *
-     * @param v the view
-     */
-    /*public void onRefreshPressed(View v) {
-        HashMap<Integer, RatSighting> sightings = (HashMap<Integer, RatSighting>) Model.getInstance().getAllRatData();
-        adapter = new SightingListAdapter(sightings.values());
-        ratDataView.setAdapter(adapter);
-    }*/
     
 }

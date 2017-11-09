@@ -26,9 +26,6 @@
 
     tools:layout="?android:attr/textEditPasteWindowLayout" />
 
-    android:layout_alignParentTop="true"
-    android:layout_alignParentEnd="true" />
-
     <SeekBar
         android:id="@+id/bar"
         android:rotation="270"

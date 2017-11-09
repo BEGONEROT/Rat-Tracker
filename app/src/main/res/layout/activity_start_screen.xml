@@ -33,10 +33,10 @@
         app:layout_constraintEnd_toStartOf="@+id/Register"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
-        android:layout_marginBottom="32dp"
+        <!--android:layout_marginBottom="32dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0" />-->
 
     <ImageView
         android:id="@+id/imageView"
@@ -51,5 +51,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.448"
-        app:srcCompat="@drawable/begonerotlogo" />
+        app:srcCompat="@drawable/begonerotlogo"
+        android:contentDescription="Logo of App" />
 </android.support.constraint.ConstraintLayout>

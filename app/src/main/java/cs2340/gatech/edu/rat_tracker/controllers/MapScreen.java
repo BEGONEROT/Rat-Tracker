@@ -1,36 +1,21 @@
 package cs2340.gatech.edu.rat_tracker.controllers;
 
-/**
- * Created by davonprewitt on 10/22/17.
- */
-
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import cs2340.gatech.edu.rat_tracker.R;
 import cs2340.gatech.edu.rat_tracker.model.Model;
 import cs2340.gatech.edu.rat_tracker.model.RatSighting;
 
 
-/**
- * Created by davonprewitt on 10/22/17.
- */
-
-
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.SeekBar;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -39,10 +24,7 @@ import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Calendar;
 import java.util.HashMap;
-
-import static android.app.PendingIntent.getActivity;
 
 /**
  * An activity that displays a Google map with a marker (pin) to indicate a particular location.
@@ -61,12 +43,7 @@ public class MapScreen extends AppCompatActivity
         setContentView(R.layout.activity_map_screen);
         Model.getInstance();
         ArrayList<RatSighting> sightings = Model.getInstance().getAllRatData();
-        sightings.sort(new Comparator<RatSighting>() {
-            @Override
-            public int compare(RatSighting rat1, RatSighting rat2) {
-                return rat1.getDate().compareTo(rat2.getDate());
-            }
-        });
+        sightings.sort((rat1, rat2) -> rat1.getDate().compareTo(rat2.getDate()));
 
 
         // Get the SupportMapFragment and request notification
@@ -141,7 +118,7 @@ public class MapScreen extends AppCompatActivity
             }
         }
 
-        RangeSeekBar<Integer> seekBar = new RangeSeekBar<Integer>(this);
+        RangeSeekBar<Integer> seekBar = new RangeSeekBar<>(this);
         seekBar.setRangeValues(0, sightings.size());
 
 
