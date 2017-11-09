@@ -23,7 +23,8 @@
             android:layout_marginTop="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/data_field" />
+            app:layout_constraintBottom_toTopOf="@+id/data_field"
+            tools:ignore="HardcodedText" />
 
 
         <ScrollView
@@ -46,7 +47,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:text="date"
-                    android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/location_type"
@@ -54,7 +56,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:text="location_type"
-                    android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/address"
@@ -62,7 +65,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:text="address"
-                    android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"
+                    tools:ignore="HardcodedText" />
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
@@ -76,7 +80,8 @@
                         android:layout_marginBottom="10dp"
                         android:text="city"
                         android:textAppearance="@android:style/TextAppearance.Material.Large"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        tools:ignore="HardcodedText" />
 
                     <TextView
                         android:id="@+id/zip_code"
@@ -86,7 +91,8 @@
                         android:layout_marginBottom="10dp"
                         android:text="zip_code"
                         android:textAppearance="@android:style/TextAppearance.Material.Large"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        tools:ignore="HardcodedText" />
 
                 </RelativeLayout>
 
@@ -97,7 +103,8 @@
                     android:layout_marginBottom="10dp"
                     android:text="borough"
                     android:textAppearance="@android:style/TextAppearance.Material.Large"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/coordinates"
@@ -106,7 +113,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="15dp"
                     android:text="X:_, Y:_"
-                    android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+                    android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                    tools:ignore="HardcodedText" />
 
             </TableLayout>
 
