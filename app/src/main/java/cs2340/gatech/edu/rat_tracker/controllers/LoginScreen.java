@@ -161,10 +161,10 @@ public class LoginScreen extends AppCompatActivity implements
 
         // set up login button action
         login.setOnClickListener(v -> {
-            TextView usernameview = (TextView) findViewById(R.id.registerUsername);
-            String username = usernameview.getText().toString();
-            TextView passwordview = (TextView) findViewById(R.id.registerPassword);
-            String password = passwordview.getText().toString();
+            TextView usernameView = (TextView) findViewById(R.id.registerUsername);
+            String username = usernameView.getText().toString();
+            TextView passwordView = (TextView) findViewById(R.id.registerPassword);
+            String password = passwordView.getText().toString();
 
             signIn(username, password);
 

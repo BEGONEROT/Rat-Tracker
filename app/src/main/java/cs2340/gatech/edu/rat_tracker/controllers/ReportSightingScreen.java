@@ -1,5 +1,6 @@
 package cs2340.gatech.edu.rat_tracker.controllers;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class ReportSightingScreen extends AppCompatActivity {
 
     private final String TAG = "ReportSightingScreen: ";
 
+    @SuppressWarnings("unchecked")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +45,7 @@ public class ReportSightingScreen extends AppCompatActivity {
         EditText city = (EditText) findViewById(R.id.cityText);
 
         Spinner borough = (Spinner) findViewById(R.id.boroughSpinner);
-        ArrayAdapter<String> bAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, Borough.values());
+        @SuppressWarnings("unchecked") ArrayAdapter<String> bAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, Borough.values());
         borough.setAdapter(bAdapter);
 
         Spinner locationType = (Spinner) findViewById(R.id.residenceSpinner);
@@ -60,7 +62,7 @@ public class ReportSightingScreen extends AppCompatActivity {
         //RatSighting newRat = new RatSighting();
 
         submit.setOnClickListener(v -> {
-            DateFormat format = new SimpleDateFormat("M/d/yyyy HH:mm");
+            @SuppressLint("SimpleDateFormat") DateFormat format = new SimpleDateFormat("M/d/yyyy HH:mm");
             Date date = new Date();
             String dateTime = format.format(date);
             String newCity = city.getText().toString();

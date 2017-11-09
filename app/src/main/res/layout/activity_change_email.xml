@@ -12,9 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
-        android:text="Current Email Address: "
+        android:text="@string/current_email_address"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/oldEmail"
@@ -22,9 +23,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:text="email"
+        android:text="@string/email"
         app:layout_constraintStart_toEndOf="@+id/current"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/newEmailText"
@@ -32,9 +34,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="40dp"
-        android:text="New Email Address"
+        android:text="@string/new_email_address"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current" />
+        app:layout_constraintTop_toBottomOf="@+id/current"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/newEmail"
@@ -43,10 +46,11 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="68dp"
         android:ems="10"
-        android:hint="Update Email"
+        android:hint="@string/update_email"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current" />
+        app:layout_constraintTop_toBottomOf="@+id/current"
+        tools:ignore="HardcodedText,TextFields" />
 
     <Button
         android:id="@+id/button2"
@@ -56,9 +60,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:onClick="onUpdateEmailPressed"
-        android:text="Update"
+        android:text="@string/update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.728"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/newEmail"
+        tools:ignore="HardcodedText" />
 </android.support.constraint.ConstraintLayout>

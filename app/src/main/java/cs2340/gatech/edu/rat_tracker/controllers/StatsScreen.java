@@ -1,5 +1,6 @@
 package cs2340.gatech.edu.rat_tracker.controllers;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -70,6 +71,7 @@ public class StatsScreen extends AppCompatActivity {
             graph.addSeries(newSeries);
         });
         graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
+            @SuppressLint("DefaultLocale")
             @Override
             public String formatLabel(double value, boolean isValueX) {
                 if (!isValueX) {

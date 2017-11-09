@@ -1,5 +1,6 @@
 package cs2340.gatech.edu.rat_tracker.controllers;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -34,6 +35,7 @@ public class RatDetails extends AppCompatActivity {
      *
      * @param rat RatSighting to get data from
      */
+    @SuppressLint("SetTextI18n")
     private void loadData(RatSighting rat) {
         TextView key = (TextView) findViewById(R.id.data_key_title);
         key.setText("#" + rat.getKey());
