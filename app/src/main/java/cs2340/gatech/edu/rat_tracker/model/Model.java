@@ -2,6 +2,7 @@ package cs2340.gatech.edu.rat_tracker.model;
 
 import android.util.Log;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -201,6 +202,10 @@ public class Model {
         return  retval;
     }
 
+    //For testing purposes
+    public Borough returnParseBorough(String parseme) {
+        return parseBorough(parseme);
+    }
 
 
 
