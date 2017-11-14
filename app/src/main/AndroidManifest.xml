@@ -42,7 +42,7 @@
             android:parentActivityName=".controllers.WelcomeScreen" />
         <activity android:name=".controllers.SettingsScreen"
             android:parentActivityName=".controllers.WelcomeScreen" />
-        <activity android:name=".controllers.updateEmailScreen"
+        <activity android:name=".controllers.UpdateEmailScreen"
             android:parentActivityName=".controllers.SettingsScreen" />
         <activity android:name=".controllers.UpdatePasswordScreen"
             android:parentActivityName=".controllers.SettingsScreen" />

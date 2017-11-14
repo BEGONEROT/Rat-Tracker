@@ -16,7 +16,7 @@ import cs2340.gatech.edu.rat_tracker.R;
  */
 
 @SuppressWarnings("ALL")
-public class updateEmailScreen extends AppCompatActivity {
+public class UpdateEmailScreen extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
@@ -42,7 +42,7 @@ public class updateEmailScreen extends AppCompatActivity {
         String username = usernameField.getText().toString();
         mAuth.getCurrentUser().updateEmail(username);
 
-        Intent logOutPage = new Intent(updateEmailScreen.this, SettingsScreen.class);
+        Intent logOutPage = new Intent(UpdateEmailScreen.this, SettingsScreen.class);
         startActivity(logOutPage);
     }
 
