@@ -1,6 +1,7 @@
-import org.junit.internal.runners.statements.Fail;
+package cs2340.gatech.edu.rat_tracker.PasswordTest.src;
 
 import java.util.Objects;
+
 
 /**
  * Class for updating password.

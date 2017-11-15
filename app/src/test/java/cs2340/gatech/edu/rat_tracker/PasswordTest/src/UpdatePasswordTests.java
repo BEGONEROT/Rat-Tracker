@@ -1,5 +1,8 @@
+package cs2340.gatech.edu.rat_tracker.PasswordTest.src;
+
 import org.junit.Before;
 import org.junit.Test;
+
 
 import static org.junit.Assert.*;
 

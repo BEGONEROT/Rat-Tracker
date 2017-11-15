@@ -1,3 +1,5 @@
+package cs2340.gatech.edu.rat_tracker.PasswordTest.src;
+
 /**
  *
  * Exception for failed update
