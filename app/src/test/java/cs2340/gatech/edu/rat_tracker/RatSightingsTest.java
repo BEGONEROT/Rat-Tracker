@@ -46,8 +46,8 @@ public class RatSightingsTest {
         Assert.assertEquals(rat.getIncidentAddress(), address);
         Assert.assertEquals(rat.getCity(), city);
         Assert.assertEquals(rat.getBorough(), borough);
-        Assert.assertEquals(new Double(rat.getLatitude()), new Double(latitude));
-        Assert.assertEquals(new Double(rat.getLongitude()), new Double(longitude));
+        Assert.assertEquals(rat.getLatitude(), new Double(latitude));
+        Assert.assertEquals(rat.getLongitude(), new Double(longitude));
     }
 
     @Test (timeout = 200)
