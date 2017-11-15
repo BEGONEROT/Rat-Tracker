@@ -49,7 +49,7 @@ public class Model {
      */
     //constructor
     private Model() {
-        readRatData();
+        //readRatData();
     }
 
     /**
@@ -192,7 +192,7 @@ public class Model {
         return retval;
     }
 
-    private Borough parseBorough(String parseme) {
+    public Borough parseBorough(String parseme) {
         Borough retval = null;
         for (Borough borough: Borough.values()) {
             if (borough.toString().equals(parseme)) {
@@ -200,11 +200,6 @@ public class Model {
             }
         }
         return  retval;
-    }
-
-    //For testing purposes
-    public Borough returnParseBorough(String parseme) {
-        return parseBorough(parseme);
     }
 
 
