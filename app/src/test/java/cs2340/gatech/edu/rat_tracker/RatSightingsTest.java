@@ -1,10 +1,11 @@
 package cs2340.gatech.edu.rat_tracker;
 
-import static org.junit.Assert.*;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+
 
 import cs2340.gatech.edu.rat_tracker.model.*;
 
@@ -35,7 +36,7 @@ public class RatSightingsTest {
         this.rat = new RatSighting(key, date, locationType, zip, address, city, borough, latitude, longitude);
     }
 
-    @Test
+    @Test (timeout = 200)
     public void testCorrectParamsConstructor() {
         setUp();
         Assert.assertEquals(rat.getKey(), key);
@@ -49,7 +50,7 @@ public class RatSightingsTest {
         Assert.assertEquals(new Double(rat.getLongitude()), new Double(longitude));
     }
 
-    @Test
+    @Test (timeout = 200)
     public void testImpossibleLongitudeLatitude() {
         double wrongLat = 91.0;
         double wrongLong = -181.0;
@@ -58,7 +59,7 @@ public class RatSightingsTest {
         Assert.assertFalse("Must check for valid latitude", wrongRat.getLatitude() == 91);
     }
 
-    @Test
+    @Test (timeout = 200)
     public void testInvalidDate() {
         String wrongDate = "13/32/-2000 30:91";
         RatSighting wrongRat = new RatSighting(key, wrongDate, locationType, zip, address, city, borough, latitude, longitude);
@@ -77,7 +78,7 @@ public class RatSightingsTest {
         Assert.assertNotEquals("Must check for valid date", wrongRat.getStringDate(), wrongDate);
     }
 
-    @Test
+    @Test (timeout = 200)
     public void testInvalidZip() {
         String wrongZip = "1010111";
         RatSighting wrongRat = new RatSighting(key, date, locationType, wrongZip, address, city, borough, latitude, longitude);

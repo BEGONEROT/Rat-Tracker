@@ -182,7 +182,7 @@ public class Model {
         readRatData();
     }
 
-    private LocationType parseLocationType(String parseme) {
+    public LocationType parseLocationType(String parseme) {
         LocationType retval = null;
         for (LocationType location: LocationType.values()) {
             if (location.toString().equals(parseme)) {
